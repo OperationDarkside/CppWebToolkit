@@ -1,0 +1,20 @@
+#pragma once
+#include "DotNetClone/String.h"
+class HtmlDataAttribute : public Object {
+public:
+	HtmlDataAttribute();
+	HtmlDataAttribute(String& name, String& value);
+	~HtmlDataAttribute();
+
+	string toString();
+	string getTypeString();
+
+	String& Name();
+	void Name(String& name);
+
+	String& Value();
+	void Value(String& value);
+private:
+	String name;
+	String value;
+};
