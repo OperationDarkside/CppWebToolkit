@@ -1,10 +1,13 @@
+#pragma once
 #include "HtmlElement.h"
 
-#pragma once
-class Html : public HtmlElement
-{
-public:
-	Html();
-	~Html();
-};
+namespace dnc{
+	namespace Web{
 
+		class Html: public HtmlElement{
+		public:
+			Html();
+			~Html();
+		};
+	}
+}

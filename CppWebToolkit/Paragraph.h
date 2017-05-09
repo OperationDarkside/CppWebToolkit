@@ -1,17 +1,18 @@
-#include "HtmlElement.h"
-#include "DotNetClone\String.h"
-
 #pragma once
-class Paragraph : public HtmlElement
-{
-public:
-	Paragraph();
-	~Paragraph();
+#include "HtmlElement.h"
 
-	String toHtml();
+namespace dnc{
+	namespace Web{
+		class Paragraph: public HtmlElement{
+		public:
+			Paragraph();
+			~Paragraph();
 
-	void setText(String* _txt);
-protected:
-	String txt;
-};
+			String toHtml();
 
+			void setText(String* _txt);
+		protected:
+			String txt;
+		};
+	}
+}

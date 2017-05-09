@@ -1,94 +1,96 @@
 #include "FORM.h"
 
+namespace dnc{
+	namespace Web{
+		FORM::FORM(){
+			this->html_part1 = "<form>";
+			this->html_part2 = "</form>";
+		}
 
 
-FORM::FORM(){
-	this->html_part1 = "<form>";
-	this->html_part2 = "</form>";
-}
+		FORM::~FORM(){}
 
+		String & FORM::AcceptCharset(){
+			return this->acceptCharset;
+		}
 
-FORM::~FORM(){}
+		void FORM::AcceptCharset(String & value){
+			this->acceptCharset = value;
+		}
 
-String & FORM::AcceptCharset(){
-	return this->acceptCharset;
-}
+		String & FORM::Action(){
+			return this->action;
+		}
 
-void FORM::AcceptCharset(String & value){
-	this->acceptCharset = value;
-}
+		void FORM::Action(String & value){
+			this->action = value;
+		}
 
-String & FORM::Action(){
-	return this->action;
-}
+		bool FORM::AutoComplete(){
+			return this->autocomplete == 1 ? true : false;
+		}
 
-void FORM::Action(String & value){
-	this->action = value;
-}
+		void FORM::AutoComplete(bool value){
+			this->autocomplete = value ? 1 : 2;
+		}
 
-bool FORM::AutoComplete(){
-	return this->autocomplete == 1 ? true : false;
-}
+		String & FORM::Enctype(){
+			return this->enctype;
+		}
 
-void FORM::AutoComplete(bool value){
-	this->autocomplete = value ? 1 : 2;
-}
+		void FORM::Enctype(String & value){
+			this->enctype = value;
+		}
 
-String & FORM::Enctype(){
-	return this->enctype;
-}
+		String & FORM::Method(){
+			return this->method;
+		}
 
-void FORM::Enctype(String & value){
-	this->enctype = value;
-}
+		void FORM::Method(String & value){
+			this->method = value;
+		}
 
-String & FORM::Method(){
-	return this->method;
-}
+		String & FORM::Name(){
+			return this->name;
+		}
 
-void FORM::Method(String & value){
-	this->method = value;
-}
+		void FORM::Name(String & value){
+			this->name = value;
+		}
 
-String & FORM::Name(){
-	return this->name;
-}
+		bool FORM::Novalidate(){
+			return this->novalidate;
+		}
 
-void FORM::Name(String & value){
-	this->name = value;
-}
+		void FORM::Novalidate(bool value){
+			this->novalidate = value;
+		}
 
-bool FORM::Novalidate(){
-	return this->novalidate;
-}
+		String & FORM::Target(){
+			return this->target;
+		}
 
-void FORM::Novalidate(bool value){
-	this->novalidate = value;
-}
+		void FORM::Target(String & value){
+			this->target = value;
+		}
 
-String & FORM::Target(){
-	return this->target;
-}
+		std::string FORM::toString(){
+			return std::string("System.Html.FORM");
+		}
 
-void FORM::Target(String & value){
-	this->target = value;
-}
+		std::string FORM::getTypeString(){
+			return std::string("FORM");
+		}
 
-string FORM::toString(){
-	return string("System.Html.FORM");
-}
+		String FORM::getAttributeString(){
+			String res;
 
-string FORM::getTypeString(){
-	return string("FORM");
-}
+			res = " " + HtmlElement::getAttributeString();
+			if(this->method != ""){
+				res += "method=\"" + this->method + "\" ";
+			}
 
-String FORM::getAttributeString(){
-	String res;
-
-	res = " " + HtmlElement::getAttributeString();
-	if(this->method != ""){
-		res += "method=\"" + this->method + "\" ";
+			return res;
+		}
 	}
-
-	return res;
 }

@@ -1,10 +1,14 @@
+#pragma once
 #include "HtmlElement.h"
 
-#pragma once
-class Body : public HtmlElement
-{
-public:
-	Body();
-	~Body();
-};
+namespace dnc{
+	namespace Web{
 
+		class Body: public HtmlElement{
+		public:
+			Body();
+			~Body();
+		};
+
+	}
+}

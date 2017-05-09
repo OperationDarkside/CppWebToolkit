@@ -1,24 +1,24 @@
 #include <iostream>
-#include "HtmlElement.h"
 #include "Html.h"
 #include "Body.h"
 #include "H1.h"
 #include "Paragraph.h"
 #include "Request.h"
 #include "FORM.h"
+#include "String.h"
 
-#pragma comment(lib, "DotNetClone.lib")
+//using namespace dnc;
+//using namespace dnc::Web;
 
-using namespace std;
 
-int main() {
-	Html html;
-	Body body;
-	Paragraph p;
-	H1 h1;
-	Request req;
-	GET g;
-	FORM form;
+int main(){
+	dnc::Web::Html html;
+	dnc::Web::Body body;
+	dnc::Web::Paragraph p;
+	dnc::Web::H1 h1;
+	dnc::Web::Request req;
+	dnc::Web::GET g;
+	dnc::Web::FORM form;
 
 	putenv("QUERY_STRING=prename=Marvin&lastname=Smith");
 	putenv("REQUEST_METHOD=GET");
@@ -26,7 +26,7 @@ int main() {
 	req.GetEnv();
 	g = req.GetValues();
 
-	h1.setText(new String(u8"ÜBASCHRIFD"));
+	h1.setText(new dnc::String(u8"ÜBASCHRIFD"));
 
 	p.setText(new String("Hallo " + g["prename"] + g["lastname"]));
 
@@ -38,7 +38,7 @@ int main() {
 	body.AddElement(&form);
 	html.AddElement(&body);
 
-	cout << "Content-type:text/html\r\n\r\n";
-	cout << html.toHtml().getStringValue();
+	std::cout << "Content-type:text/html\r\n\r\n";
+	std::cout << html.toHtml().getStringValue();
 
 }

@@ -1,19 +1,23 @@
-#include "DotNetClone\String.h"
+#pragma once
+#include "String.h"
 #include <map>
 
-#pragma once
-class GET : public Object
-{
-public:
-	GET();
-	~GET();
+namespace dnc{
+	namespace Web{
 
-	void setMap(map<string, string> m);
+		class GET: public Object{
+		public:
+			GET();
+			~GET();
 
-	String operator [](char* key);
-	String operator [](std::string& key);
-	String operator [](String& key);
+			void setMap(std::map<std::string, std::string> m);
 
-private:
-	map<string, string> kv_map;
-};
+			String operator [](char* key);
+			String operator [](std::string& key);
+			String operator [](String& key);
+
+		private:
+			std::map<std::string, std::string> kv_map;
+		};
+	}
+}

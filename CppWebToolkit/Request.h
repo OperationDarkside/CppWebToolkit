@@ -1,22 +1,25 @@
+#pragma once
 #include "GET.h"
 #include "POST.h"
+#include <map>
 
-#pragma once
-class Request
-{
-public:
-	Request();
-	~Request();
+namespace dnc{
+	namespace Web{
+		class Request : public Object{
+		public:
+			Request();
+			~Request();
 
-	void GetEnv();
+			void GetEnv();
 
-	GET GetValues();
-	POST PostValues();
+			GET GetValues();
+			POST PostValues();
 
-private:
-	string UriDecode(const string& sSrc);
+		private:
+			std::string UriDecode(const std::string& sSrc);
 
-	map<string, string> get_kvs;
-	map<string, string> post_kvs;
-};
-
+			std::map<std::string, std::string> get_kvs;
+			std::map<std::string, std::string> post_kvs;
+		};
+	}
+}

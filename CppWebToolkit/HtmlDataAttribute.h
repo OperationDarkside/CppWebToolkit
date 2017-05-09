@@ -1,20 +1,25 @@
 #pragma once
-#include "DotNetClone/String.h"
-class HtmlDataAttribute : public Object {
-public:
-	HtmlDataAttribute();
-	HtmlDataAttribute(String& name, String& value);
-	~HtmlDataAttribute();
+#include "String.h"
 
-	string toString();
-	string getTypeString();
+namespace dnc{
+	namespace Web{
+		class HtmlDataAttribute: public Object{
+		public:
+			HtmlDataAttribute();
+			HtmlDataAttribute(String& name, String& value);
+			~HtmlDataAttribute();
 
-	String& Name();
-	void Name(String& name);
+			std::string toString();
+			std::string getTypeString();
 
-	String& Value();
-	void Value(String& value);
-private:
-	String name;
-	String value;
-};
+			String& Name();
+			void Name(String& name);
+
+			String& Value();
+			void Value(String& value);
+		private:
+			String name;
+			String value;
+		};
+	}
+}

@@ -1,20 +1,22 @@
-#include "DotNetClone\String.h"
+#pragma once
+#include "String.h"
 #include <map>
 
-#pragma once
-class POST
-{
-public:
-	POST();
-	~POST();
+namespace dnc{
+	namespace Web{
+		class POST : public Object{
+		public:
+			POST();
+			~POST();
 
-	void setMap(map<string, string> m);
+			void setMap(std::map<std::string, std::string> m);
 
-	String operator [](char* key);
-	String operator [](std::string& key);
-	String operator [](String& key);
+			String operator [](char* key);
+			String operator [](std::string& key);
+			String operator [](String& key);
 
-private:
-	map<string, string> kv_map;
-};
-
+		private:
+			std::map<std::string, std::string> kv_map;
+		};
+	}
+}

@@ -1,21 +1,22 @@
 #pragma once
+#include "String.h"
 
-#include "DotNetClone\String.h"
-#include "DotNetClone\Object.h"
+namespace dnc{
+	namespace Web{
+		class HtmlAttribute: public Object{
+		public:
+			HtmlAttribute();
+			HtmlAttribute(String& name, String& value);
+			~HtmlAttribute();
 
-class HtmlAttribute{
-public:
-	HtmlAttribute();
-	HtmlAttribute(String& name, String& value);
-	~HtmlAttribute();
+			String& Name();
+			void Name(String& name);
 
-	String& Name();
-	void Name(String& name);
-
-	String& Value();
-	void Value(String& value);
-private:
-	String name;
-	String value;
-};
-
+			String& Value();
+			void Value(String& value);
+		private:
+			String name;
+			String value;
+		};
+	}
+}
