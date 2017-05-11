@@ -74,8 +74,8 @@ namespace dnc{
 			bool Translate();
 			void Translate(bool value);
 
-			string toString();
-			string getTypeString();
+			std::string toString();
+			std::string getTypeString();
 		protected:
 			/*Open Tag*/
 			String html_part1;

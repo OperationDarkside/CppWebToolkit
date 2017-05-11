@@ -1,5 +1,5 @@
 #pragma once
-#include "String.h"
+#include "DNC/String.h"
 #include <map>
 
 namespace dnc{

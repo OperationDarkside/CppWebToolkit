@@ -181,12 +181,12 @@ namespace dnc{
 			this->translate = value ? 1 : 2;
 		}
 
-		string HtmlElement::toString(){
-			return string("System.HtmlElement");
+		std::string HtmlElement::toString(){
+			return std::string("System.HtmlElement");
 		}
 
-		string HtmlElement::getTypeString(){
-			return string("HtmlElement");
+		std::string HtmlElement::getTypeString(){
+			return std::string("HtmlElement");
 		}
 
 		String HtmlElement::getAttributeString(){
@@ -202,7 +202,7 @@ namespace dnc{
 			}
 			//ContentEditable
 			if(this->contentEditable != 0){
-				res += "contenteditable=\"" + to_string(this->contentEditable == 1 ? true : false) + "\" ";
+				res += "contenteditable=\"" + std::to_string(this->contentEditable == 1 ? true : false) + "\" ";
 			}
 			//ContextMenu
 			if(this->contextMenu != ""){
@@ -238,7 +238,7 @@ namespace dnc{
 			}
 			// Spellcheck
 			if(this->spellcheck != 0){
-				res += "spellcheck=\"" + to_string(this->spellcheck == 1 ? true : false) + "\" ";
+				res += "spellcheck=\"" + std::to_string(this->spellcheck == 1 ? true : false) + "\" ";
 			}
 			// Style
 			if(this->style != ""){
@@ -246,7 +246,7 @@ namespace dnc{
 			}
 			// TabIndex
 			if(this->tabIndex > 0){
-				res += "tabindex=\"" + to_string(this->tabIndex) + "\" ";
+				res += "tabindex=\"" + std::to_string(this->tabIndex) + "\" ";
 			}
 			// Title
 			if(this->title != ""){
@@ -254,7 +254,7 @@ namespace dnc{
 			}
 			// Translate
 			if(this->translate != 0){
-				res += "translate=\"" + string(this->translate == 1 ? "yes" : "no") + "\" ";
+				res += "translate=\"" + std::string(this->translate == 1 ? "yes" : "no") + "\" ";
 			}
 
 			return res;

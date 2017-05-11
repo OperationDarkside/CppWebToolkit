@@ -5,7 +5,8 @@
 #include "Paragraph.h"
 #include "Request.h"
 #include "FORM.h"
-#include "String.h"
+#include "Response.h"
+#include "DNC\String.h"
 
 //using namespace dnc;
 //using namespace dnc::Web;
@@ -18,7 +19,8 @@ int main(){
 	dnc::Web::H1 h1;
 	dnc::Web::Request req;
 	dnc::Web::GET g;
-	dnc::Web::FORM form;
+	dnc::Web::Form form;
+	dnc::Web::Response resp;
 
 	putenv("QUERY_STRING=prename=Marvin&lastname=Smith");
 	putenv("REQUEST_METHOD=GET");
@@ -28,17 +30,23 @@ int main(){
 
 	h1.setText(new dnc::String(u8"ÜBASCHRIFD"));
 
-	p.setText(new String("Hallo " + g["prename"] + g["lastname"]));
+	bool isPrename = false, isLastName = false;
 
-	form.Class(String("pollenstress"));
-	form.Method(String("POST"));
+	isPrename = g.isset("prename");
+	isLastName = g.isset("lastname");
+
+	if(isPrename && isLastName){
+		p.setText(new dnc::String("Hallo " + g["prename"] + g["lastname"]));
+	}
+
+	form.Class(dnc::String("pollenstress"));
+	form.Method(dnc::String("POST"));
 
 	body.AddElement(&h1);
 	body.AddElement(&p);
 	body.AddElement(&form);
 	html.AddElement(&body);
 
-	std::cout << "Content-type:text/html\r\n\r\n";
-	std::cout << html.toHtml().getStringValue();
-
+	resp.Html(html);
+	resp.Send();
 }

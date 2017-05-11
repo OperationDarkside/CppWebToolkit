@@ -5,10 +5,10 @@
 namespace dnc{
 	namespace Web{
 
-		class FORM: public HtmlElement{
+		class Form: public HtmlElement{
 		public:
-			FORM();
-			~FORM();
+			Form();
+			~Form();
 
 			// AcceptCharset
 			String& AcceptCharset();
@@ -35,8 +35,8 @@ namespace dnc{
 			String& Target();
 			void Target(String& value);
 
-			string toString();
-			string getTypeString();
+			std::string toString();
+			std::string getTypeString();
 		private:
 			String acceptCharset;
 			String action;

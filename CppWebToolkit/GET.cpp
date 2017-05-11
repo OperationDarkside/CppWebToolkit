@@ -1,4 +1,7 @@
+#pragma once
+
 #include "GET.h"
+#include "DNC\String.h"
 
 namespace dnc{
 	namespace Web{
@@ -6,6 +9,15 @@ namespace dnc{
 
 
 		GET::~GET(){}
+
+		bool GET::isset(String key){
+			bool res = false;
+			std::map<std::string, std::string>::iterator it;
+
+			it = this->kv_map.find(key.getStringValue());
+
+			return it != this->kv_map.end();
+		}
 
 		void GET::setMap(std::map<std::string, std::string> m){
 			this->kv_map = m;

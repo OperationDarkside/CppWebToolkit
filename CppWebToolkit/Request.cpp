@@ -1,4 +1,6 @@
+#pragma once
 #include "Request.h"
+#include "DNC\String.h"
 
 namespace dnc{
 	namespace Web{
@@ -15,14 +17,14 @@ namespace dnc{
 			char* str_len;
 			char* str_post;
 			size_t len = 0;
-			string val1;
-			string val2;
-			string req_method_get;
-			string req_method_post;
+			std::string val1;
+			std::string val2;
+			std::string req_method_get;
+			std::string req_method_post;
 			String q_str;
-			vector<String*> pairs;
-			vector<String*> kv;
-			map<string, string> getMap;
+			std::vector<String*> pairs;
+			std::vector<String*> kv;
+			std::map<std::string, std::string> getMap;
 
 			method = getenv("REQUEST_METHOD");
 			query_cstr = getenv("QUERY_STRING");
@@ -44,7 +46,7 @@ namespace dnc{
 							val1 = UriDecode(kv[0]->getStringValue());
 							val2 = UriDecode(kv[1]->getStringValue());
 
-							getMap.insert(pair<string, string>(val1, val2));
+							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
 						kv = q_str.split(&String("="));
@@ -52,7 +54,7 @@ namespace dnc{
 						val1 = UriDecode(kv[0]->getStringValue());
 						val2 = UriDecode(kv[1]->getStringValue());
 
-						getMap.insert(pair<string, string>(val1, val2));
+						getMap.insert(std::pair<std::string, std::string>(val1, val2));
 					}
 
 					get_kvs = getMap;
@@ -77,7 +79,7 @@ namespace dnc{
 							val1 = UriDecode(kv[0]->getStringValue());
 							val2 = UriDecode(kv[1]->getStringValue());
 
-							getMap.insert(pair<string, string>(val1, val2));
+							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
 						kv = q_str.split(&String("="));
@@ -85,7 +87,7 @@ namespace dnc{
 						val1 = UriDecode(kv[0]->getStringValue());
 						val2 = UriDecode(kv[1]->getStringValue());
 
-						getMap.insert(pair<string, string>(val1, val2));
+						getMap.insert(std::pair<std::string, std::string>(val1, val2));
 					}
 
 					post_kvs = getMap;
@@ -151,21 +153,21 @@ namespace dnc{
 			return sResult;
 		}
 
-		string dec2hex(unsigned long long i){
-			stringstream ss;
-			ss << hex << uppercase << i;
+		std::string dec2hex(unsigned long long i){
+			std::stringstream ss;
+			ss << std::hex << std::uppercase << i;
 			//ss << hex << lowercase << i;
 			//ss << showbase << hex << lowercase << i; //prepends 0x
 			//string s; ss >> s; return s; //alternate way to extract string
 			return ss.str();
 		}
 
-		string dec2hex_c(unsigned int i) //has limit of 32 bit integer
+		std::string dec2hex_c(unsigned int i) //has limit of 32 bit integer
 		{
 			char s[20];
 			sprintf(s, "%X", i);//uppercase
 								//sprintf(s, "%x", i);//lowercase
-			return string(s);
+			return std::string(s);
 		}
 	}
 }

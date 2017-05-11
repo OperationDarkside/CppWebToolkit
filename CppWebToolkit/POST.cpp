@@ -1,4 +1,5 @@
 #include "POST.h"
+#include "DNC\String.h"
 
 namespace dnc{
 	namespace Web{
@@ -7,12 +8,12 @@ namespace dnc{
 
 		POST::~POST(){}
 
-		void POST::setMap(map<string, string> m){
+		void POST::setMap(std::map<std::string, std::string> m){
 			this->kv_map = m;
 		}
 
 		String POST::operator[](char * key){
-			return String(&this->kv_map.at(string(key)));
+			return String(&this->kv_map.at(std::string(key)));
 		}
 
 		String POST::operator[](std::string & key){

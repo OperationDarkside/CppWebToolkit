@@ -2,87 +2,87 @@
 
 namespace dnc{
 	namespace Web{
-		FORM::FORM(){
+		Form::Form(){
 			this->html_part1 = "<form>";
 			this->html_part2 = "</form>";
 		}
 
 
-		FORM::~FORM(){}
+		Form::~Form(){}
 
-		String & FORM::AcceptCharset(){
+		String & Form::AcceptCharset(){
 			return this->acceptCharset;
 		}
 
-		void FORM::AcceptCharset(String & value){
+		void Form::AcceptCharset(String & value){
 			this->acceptCharset = value;
 		}
 
-		String & FORM::Action(){
+		String & Form::Action(){
 			return this->action;
 		}
 
-		void FORM::Action(String & value){
+		void Form::Action(String & value){
 			this->action = value;
 		}
 
-		bool FORM::AutoComplete(){
+		bool Form::AutoComplete(){
 			return this->autocomplete == 1 ? true : false;
 		}
 
-		void FORM::AutoComplete(bool value){
+		void Form::AutoComplete(bool value){
 			this->autocomplete = value ? 1 : 2;
 		}
 
-		String & FORM::Enctype(){
+		String & Form::Enctype(){
 			return this->enctype;
 		}
 
-		void FORM::Enctype(String & value){
+		void Form::Enctype(String & value){
 			this->enctype = value;
 		}
 
-		String & FORM::Method(){
+		String & Form::Method(){
 			return this->method;
 		}
 
-		void FORM::Method(String & value){
+		void Form::Method(String & value){
 			this->method = value;
 		}
 
-		String & FORM::Name(){
+		String & Form::Name(){
 			return this->name;
 		}
 
-		void FORM::Name(String & value){
+		void Form::Name(String & value){
 			this->name = value;
 		}
 
-		bool FORM::Novalidate(){
+		bool Form::Novalidate(){
 			return this->novalidate;
 		}
 
-		void FORM::Novalidate(bool value){
+		void Form::Novalidate(bool value){
 			this->novalidate = value;
 		}
 
-		String & FORM::Target(){
+		String & Form::Target(){
 			return this->target;
 		}
 
-		void FORM::Target(String & value){
+		void Form::Target(String & value){
 			this->target = value;
 		}
 
-		std::string FORM::toString(){
+		std::string Form::toString(){
 			return std::string("System.Html.FORM");
 		}
 
-		std::string FORM::getTypeString(){
+		std::string Form::getTypeString(){
 			return std::string("FORM");
 		}
 
-		String FORM::getAttributeString(){
+		String Form::getAttributeString(){
 			String res;
 
 			res = " " + HtmlElement::getAttributeString();
