@@ -57,6 +57,12 @@
     <ClCompile Include="Response.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Meta.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HtmlElement.h">
@@ -96,6 +102,15 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Response.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Meta.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CharSets.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

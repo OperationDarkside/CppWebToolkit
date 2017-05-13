@@ -8,9 +8,9 @@ namespace dnc{
 			Paragraph();
 			~Paragraph();
 
-			String toHtml();
+			String toHtml() override;
 
-			void setText(String* _txt);
+			void setText(String& _txt);
 		protected:
 			String txt;
 		};

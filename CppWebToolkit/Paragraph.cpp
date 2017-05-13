@@ -27,7 +27,7 @@ namespace dnc{
 			return str;
 		}
 
-		void Paragraph::setText(String * _txt){
+		void Paragraph::setText(String& _txt){
 			this->txt = _txt;
 		}
 	}

@@ -3,8 +3,8 @@
 
 namespace dnc{
 	namespace Web{
-		HtmlElement::HtmlElement(){}
 
+		HtmlElement::HtmlElement(){}
 
 		HtmlElement::~HtmlElement(){}
 
@@ -182,7 +182,7 @@ namespace dnc{
 		}
 
 		std::string HtmlElement::toString(){
-			return std::string("System.HtmlElement");
+			return std::string("System.Web.HtmlElement");
 		}
 
 		std::string HtmlElement::getTypeString(){
