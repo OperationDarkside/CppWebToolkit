@@ -19,24 +19,24 @@ namespace dnc{
 			return std::string("Title");
 		}
 
-		String Title::toHtml(){
-			size_t len = 0;
-			String str;
+		//String Title::toHtml(){
+		//	size_t len = 0;
+		//	String str;
 
-			len = this->children.size();
+		//	len = this->children.size();
 
-			str += this->html_part1;
-			str += this->text;
-			for(size_t i = 0; i < len; i++){
-				str += this->children[i]->toHtml();
-			}
-			str += this->html_part2;
+		//	str += this->html_part1;
+		//	str += this->text;
+		//	for(size_t i = 0; i < len; i++){
+		//		str += this->children[i]->toHtml();
+		//	}
+		//	str += this->html_part2;
 
-			return str;
-		}
+		//	return str;
+		//}
 
 		void Title::SetText(String value){
-			this->text = value;
+			this->innerText = value;
 		}
 
 	}

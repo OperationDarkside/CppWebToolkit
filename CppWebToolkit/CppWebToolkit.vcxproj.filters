@@ -63,6 +63,18 @@
     <ClCompile Include="Meta.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="A.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Ul.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Li.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Div.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HtmlElement.h">
@@ -111,6 +123,18 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="CharSets.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="A.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Ul.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Li.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Div.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

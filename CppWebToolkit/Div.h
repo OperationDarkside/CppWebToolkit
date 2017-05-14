@@ -3,10 +3,14 @@
 
 namespace dnc{
 	namespace Web{
-		class Paragraph: public HtmlElement{
+
+		class Div: public HtmlElement{
 		public:
-			Paragraph();
-			~Paragraph();
+			Div();
+			~Div();
+
+			std::string ToString();
+			std::string getTypeString();
 
 			// INNER TEXT
 			String InnerText();

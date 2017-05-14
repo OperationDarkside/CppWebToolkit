@@ -8,11 +8,10 @@ namespace dnc{
 		public:
 			H1();
 			~H1();
-			String toHtml();
 
-			void setText(String* _txt);
-		protected:
-			String txt;
+			// INNER TEXT
+			String InnerText();
+			void InnerText(String value);
 		};
 	}
 }

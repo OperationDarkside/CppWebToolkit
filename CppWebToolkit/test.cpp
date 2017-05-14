@@ -35,7 +35,7 @@ int main(){
 	req.GetEnv();
 	g = req.GetValues();
 
-	h1.setText(new dnc::String(u8"ÜBASCHRIFD"));
+	h1.InnerText(u8"ÜBASCHRIFD");
 
 	bool isPrename = false, isLastName = false;
 
@@ -43,7 +43,7 @@ int main(){
 	isLastName = g.isset("lastname");
 
 	if(isPrename && isLastName){
-		p.setText(dnc::String("Hallo " + g["prename"] + g["lastname"]));
+		p.InnerText("Hallo " + g["prename"] + g["lastname"]);
 	}
 
 	form.Class(dnc::String("pollenstress"));

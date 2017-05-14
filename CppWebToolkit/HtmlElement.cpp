@@ -24,6 +24,9 @@ namespace dnc{
 			// Add Sub-HtmlElements
 			str += this->html_part1;
 
+			// Add inner text
+			str += this->innerText;
+
 			len_SubElements = this->children.size();
 			for(size_t i = 0; i < len_SubElements; i++){
 				HtmlElement* ele = this->children[i];

@@ -81,6 +81,8 @@ namespace dnc{
 			String html_part1;
 			/*Close Tag*/
 			String html_part2;
+			/*Inner Text*/
+			String innerText;
 			/*Sub-Elements*/
 			std::vector<HtmlElement*> children;
 

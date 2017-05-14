@@ -9,24 +9,12 @@ namespace dnc{
 
 		H1::~H1(){}
 
-		String H1::toHtml(){
-			size_t len = 0;
-			String str;
-
-			len = this->children.size();
-
-			str += this->html_part1;
-			str += this->txt;
-			for(size_t i = 0; i < len; i++){
-				str += this->children[i]->toHtml();
-			}
-			str += this->html_part2;
-
-			return str;
+		String H1::InnerText(){
+			return this->innerText;
 		}
 
-		void H1::setText(String * _txt){
-			this->txt = _txt;
+		void H1::InnerText(String value){
+			this->innerText = value;
 		}
 	}
 }

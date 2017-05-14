@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="A.cpp" />
     <ClCompile Include="Body.cpp" />
+    <ClCompile Include="Div.cpp" />
     <ClCompile Include="FORM.cpp" />
     <ClCompile Include="GET.cpp" />
     <ClCompile Include="H1.cpp" />
@@ -136,6 +138,7 @@
     <ClCompile Include="HtmlAttribute.cpp" />
     <ClCompile Include="HtmlDataAttribute.cpp" />
     <ClCompile Include="HtmlElement.cpp" />
+    <ClCompile Include="Li.cpp" />
     <ClCompile Include="Meta.cpp" />
     <ClCompile Include="Paragraph.cpp" />
     <ClCompile Include="POST.cpp" />
@@ -143,10 +146,13 @@
     <ClCompile Include="Response.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="Ul.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="A.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="CharSets.h" />
+    <ClInclude Include="Div.h" />
     <ClInclude Include="FORM.h" />
     <ClInclude Include="GET.h" />
     <ClInclude Include="H1.h" />
@@ -155,12 +161,14 @@
     <ClInclude Include="HtmlAttribute.h" />
     <ClInclude Include="HtmlDataAttribute.h" />
     <ClInclude Include="HtmlElement.h" />
+    <ClInclude Include="Li.h" />
     <ClInclude Include="Meta.h" />
     <ClInclude Include="Paragraph.h" />
     <ClInclude Include="POST.h" />
     <ClInclude Include="Request.h" />
     <ClInclude Include="Response.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="Ul.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

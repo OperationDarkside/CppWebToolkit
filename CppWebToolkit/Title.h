@@ -12,12 +12,12 @@ namespace dnc{
 			std::string ToString();
 			std::string getTypeString();
 
-			String toHtml() override;
+			//String toHtml() override;
 
 			void SetText(String value);
 
 		private:
-			String text;
+			//String text;
 		};
 	}
 }
