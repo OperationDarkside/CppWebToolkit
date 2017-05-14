@@ -1,6 +1,7 @@
 #pragma once
 #include "Request.h"
 #include "DNC\String.h"
+#include "DNC\List.h"
 
 namespace dnc{
 	namespace Web{
@@ -22,8 +23,8 @@ namespace dnc{
 			std::string req_method_get;
 			std::string req_method_post;
 			String q_str;
-			std::vector<String*> pairs;
-			std::vector<String*> kv;
+			Collections::Generic::List<String> pairs;
+			Collections::Generic::List<String> kv;
 			std::map<std::string, std::string> getMap;
 
 			method = getenv("REQUEST_METHOD");
@@ -34,25 +35,25 @@ namespace dnc{
 
 			if(req_method_get.compare(method) == 0){
 				if(query_cstr != nullptr){
-					q_str = String(query_cstr);
-					if(q_str.contains(&String("&"))){
+					q_str = query_cstr;
+					if(q_str.contains("&")){
 
 						pairs = q_str.split('&');
 
-						len = pairs.size();
+						len = pairs.Count();
 						for(size_t i = 0; i < len; i++){
-							kv = pairs[i]->split(&String("="));
+							kv = pairs[i].split("=");
 
-							val1 = UriDecode(kv[0]->getStringValue());
-							val2 = UriDecode(kv[1]->getStringValue());
+							val1 = UriDecode(kv[0].getStringValue());
+							val2 = UriDecode(kv[1].getStringValue());
 
 							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
 						kv = q_str.split(&String("="));
 
-						val1 = UriDecode(kv[0]->getStringValue());
-						val2 = UriDecode(kv[1]->getStringValue());
+						val1 = UriDecode(kv[0].getStringValue());
+						val2 = UriDecode(kv[1].getStringValue());
 
 						getMap.insert(std::pair<std::string, std::string>(val1, val2));
 					}
@@ -68,24 +69,24 @@ namespace dnc{
 
 				if(str_post != nullptr){
 					q_str = String(str_post);
-					if(q_str.contains(&String("&"))){
+					if(q_str.contains("&")){
 
 						pairs = q_str.split('&');
 
-						len = pairs.size();
+						len = pairs.Count();
 						for(size_t i = 0; i < len; i++){
-							kv = pairs[i]->split(&String("="));
+							kv = pairs[i].split("=");
 
-							val1 = UriDecode(kv[0]->getStringValue());
-							val2 = UriDecode(kv[1]->getStringValue());
+							val1 = UriDecode(kv[0].getStringValue());
+							val2 = UriDecode(kv[1].getStringValue());
 
 							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
 						kv = q_str.split(&String("="));
 
-						val1 = UriDecode(kv[0]->getStringValue());
-						val2 = UriDecode(kv[1]->getStringValue());
+						val1 = UriDecode(kv[0].getStringValue());
+						val2 = UriDecode(kv[1].getStringValue());
 
 						getMap.insert(std::pair<std::string, std::string>(val1, val2));
 					}

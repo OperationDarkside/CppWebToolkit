@@ -1,6 +1,7 @@
 #pragma once
 #include "HtmlAttribute.h"
 #include "HtmlDataAttribute.h"
+#include "DNC\List.h"
 
 
 namespace dnc{
@@ -84,7 +85,7 @@ namespace dnc{
 			/*Inner Text*/
 			String innerText;
 			/*Sub-Elements*/
-			std::vector<HtmlElement*> children;
+			Collections::Generic::List<HtmlElement*> children;
 
 			//Attributes
 			/* true/false are represented as integer:
@@ -96,7 +97,7 @@ namespace dnc{
 			String _class;
 			int contentEditable = 0;
 			String contextMenu;
-			std::vector<HtmlDataAttribute> dataAttributes;
+			Collections::Generic::List<HtmlDataAttribute> dataAttributes;
 			String dir;
 			String draggable;
 			String dropzone;

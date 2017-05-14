@@ -9,7 +9,7 @@ namespace dnc{
 		HtmlElement::~HtmlElement(){}
 
 		void HtmlElement::AddElement(HtmlElement* element){
-			this->children.push_back(element);
+			this->children.Add(element);
 		}
 
 		String HtmlElement::toHtml(){
@@ -27,7 +27,7 @@ namespace dnc{
 			// Add inner text
 			str += this->innerText;
 
-			len_SubElements = this->children.size();
+			len_SubElements = this->children.Count();
 			for(size_t i = 0; i < len_SubElements; i++){
 				HtmlElement* ele = this->children[i];
 				str += ele->toHtml();
@@ -71,18 +71,18 @@ namespace dnc{
 		}
 
 		void HtmlElement::AddDataAttribute(String & name, String & value){
-			this->dataAttributes.push_back(HtmlDataAttribute(name, value));
+			this->dataAttributes.Add(HtmlDataAttribute(name, value));
 		}
 
 		void HtmlElement::AddDataAttribute(HtmlDataAttribute & attr){
-			this->dataAttributes.push_back(attr);
+			this->dataAttributes.Add(attr);
 		}
 
 		HtmlDataAttribute & HtmlElement::GetDataAttribute(String & name){
 			size_t len = 0;
 			HtmlDataAttribute attr;
 
-			len = this->dataAttributes.size();
+			len = this->dataAttributes.Count();
 
 			for(size_t i = 0; i < len; i++){
 				attr = this->dataAttributes[i];
@@ -212,7 +212,9 @@ namespace dnc{
 				res += "contextmenu=\"" + this->contextMenu + "\" ";
 			}
 			// Data-* Attributes
-			for each (HtmlDataAttribute attr in this->dataAttributes){
+			for(size_t i = 0; i < this->dataAttributes.Count(); i++){
+				HtmlDataAttribute attr = this->dataAttributes[i];
+
 				res += "data-" + attr.Name() + "=\"" + attr.Value() + "\" ";
 			}
 			// Dir
