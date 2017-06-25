@@ -35,8 +35,8 @@ namespace dnc{
 			String& Target();
 			void Target(String& value);
 
-			std::string toString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
 		private:
 			String acceptCharset;
 			String action;

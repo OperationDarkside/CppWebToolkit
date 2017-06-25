@@ -74,11 +74,11 @@ namespace dnc{
 			this->target = value;
 		}
 
-		std::string Form::toString(){
+		std::string Form::ToString(){
 			return std::string("System.Html.FORM");
 		}
 
-		std::string Form::getTypeString(){
+		std::string Form::GetTypeString(){
 			return std::string("FORM");
 		}
 

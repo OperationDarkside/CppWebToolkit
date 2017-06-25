@@ -117,12 +117,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\greis\Documents\Visual Studio 2015\Projects\DNC\DNC</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\greis\Documents\Visual Studio 2015\Projects\DNC</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\greis\Documents\Visual Studio 2015\Projects\DNC\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\greis\Documents\Visual Studio 2015\Projects\DNC\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>DNC.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -138,6 +138,7 @@
     <ClCompile Include="HtmlAttribute.cpp" />
     <ClCompile Include="HtmlDataAttribute.cpp" />
     <ClCompile Include="HtmlElement.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Li.cpp" />
     <ClCompile Include="Meta.cpp" />
     <ClCompile Include="Paragraph.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="HtmlAttribute.h" />
     <ClInclude Include="HtmlDataAttribute.h" />
     <ClInclude Include="HtmlElement.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Li.h" />
     <ClInclude Include="Meta.h" />
     <ClInclude Include="Paragraph.h" />
