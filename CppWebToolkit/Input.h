@@ -45,6 +45,10 @@ namespace dnc {
 			void List(String value);
 			String& Max();
 			void Max(String value);
+			int MaxLength();
+			void MaxLength(int value);
+			String& Min();
+			void Min(String value);
 			bool Multiple();
 			void Multiple(bool value);
 			String& Name();
@@ -57,8 +61,8 @@ namespace dnc {
 			void Readonly(bool value);
 			bool Required();
 			void Required(bool value);
-			unsigned Size();
-			void Size(unsigned value);
+			int Size();
+			void Size(int value);
 			String& Source();
 			void Source(String value);
 			int Step();
@@ -74,7 +78,7 @@ namespace dnc {
 
 			String accept;
 			String alt;
-			bool autocomplete = true;
+			int autocomplete = 0;
 			bool autofocus = false;
 			bool checked = false;
 			bool dirname = false;
@@ -88,23 +92,29 @@ namespace dnc {
 			String height;
 			String list;
 			String max;
+			int maxlength = -1;
+			String min;
 			bool multiple = false;
 			String name;
 			String pattern;
 			String placeholder;
 			bool readonly = false;
 			bool required = false;
-			unsigned size = 0;
+			int size = -1;
 			String src;
-			int step = 0;
+			int step = -1;
 			InputType type;
 			String value;
 			String width;
+
+		protected:
+			String getAttributeString() override;
 		};
 
 		enum FormMethods {
-			Get = 0,
-			Post = 1
+			None = 0,
+			Get = 1,
+			Post = 2
 		};
 		enum InputType {
 			Button = 0,

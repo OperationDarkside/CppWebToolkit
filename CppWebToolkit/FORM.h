@@ -48,7 +48,7 @@ namespace dnc{
 			String target;
 
 		protected:
-			String getAttributeString();
+			String getAttributeString() override;
 		};
 	}
 }

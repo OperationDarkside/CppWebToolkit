@@ -86,8 +86,47 @@ namespace dnc{
 			String res;
 
 			res = " " + HtmlElement::getAttributeString();
+
+			// ACCEPT CHARSET
+			if(this->acceptCharset != "") {
+				res += " accept-charset=\"" + this->acceptCharset + "\"";
+			}
+
+			// ACTION
+			if(this->action != "") {
+				res += " action=\"" + this->action + "\"";
+			}
+
+			// AUTOCOMPLETE
+			if(this->autocomplete != 0) {
+				res += " autocomplete=\"";
+				res += (this->autocomplete == 1 ? "on" : "off");
+				res += "\"";
+			}
+
+			// ENCTYPE
+			if(this->enctype != "") {
+				res += " enctype=\"" + this->enctype + "\"";
+			}
+
+			// METHOD
 			if(this->method != ""){
-				res += "method=\"" + this->method + "\" ";
+				res += " method=\"" + this->method + "\"";
+			}
+
+			// NAME
+			if(this->name != "") {
+				res += " name=\"" + this->name + "\"";
+			}
+
+			//NOVALIDATE
+			if(this->novalidate) {
+				res += " novalidate";
+			}
+
+			// TARGET
+			if(this->target != "") {
+				res += " target=\"" + this->target + "\"";
 			}
 
 			return res;

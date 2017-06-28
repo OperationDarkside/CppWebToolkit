@@ -44,16 +44,16 @@ namespace dnc{
 						for(size_t i = 0; i < len; i++){
 							kv = pairs[i].split("=");
 
-							val1 = UriDecode(kv[0].getStringValue());
-							val2 = UriDecode(kv[1].getStringValue());
+							val1 = UriDecode(kv[0].GetStringValue());
+							val2 = UriDecode(kv[1].GetStringValue());
 
 							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
 						kv = q_str.split(&String("="));
 
-						val1 = UriDecode(kv[0].getStringValue());
-						val2 = UriDecode(kv[1].getStringValue());
+						val1 = UriDecode(kv[0].GetStringValue());
+						val2 = UriDecode(kv[1].GetStringValue());
 
 						getMap.insert(std::pair<std::string, std::string>(val1, val2));
 					}
@@ -77,16 +77,16 @@ namespace dnc{
 						for(size_t i = 0; i < len; i++){
 							kv = pairs[i].split("=");
 
-							val1 = UriDecode(kv[0].getStringValue());
-							val2 = UriDecode(kv[1].getStringValue());
+							val1 = UriDecode(kv[0].GetStringValue());
+							val2 = UriDecode(kv[1].GetStringValue());
 
 							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
 						kv = q_str.split(&String("="));
 
-						val1 = UriDecode(kv[0].getStringValue());
-						val2 = UriDecode(kv[1].getStringValue());
+						val1 = UriDecode(kv[0].GetStringValue());
+						val2 = UriDecode(kv[1].GetStringValue());
 
 						getMap.insert(std::pair<std::string, std::string>(val1, val2));
 					}
