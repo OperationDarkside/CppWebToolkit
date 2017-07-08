@@ -1,6 +1,11 @@
 #pragma once
+
+#ifndef REQUEST_H
+#define REQUEST_H
+
 #include "GET.h"
 #include "POST.h"
+#include "DNC/List.h"
 #include <map>
 
 namespace dnc{
@@ -9,6 +14,9 @@ namespace dnc{
 		public:
 			Request();
 			~Request();
+
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			void GetEnv();
 
@@ -23,3 +31,4 @@ namespace dnc{
 		};
 	}
 }
+#endif

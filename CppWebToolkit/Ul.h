@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef UL_H
+#define UL_H
+
 #include "HtmlElement.h"
 
 namespace dnc{
@@ -9,8 +13,9 @@ namespace dnc{
 			Ul();
 			~Ul();
 
-			std::string ToString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
 		};
 	}
 }
+#endif

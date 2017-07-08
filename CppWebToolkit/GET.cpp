@@ -1,7 +1,5 @@
 #pragma once
-
 #include "GET.h"
-#include "DNC\String.h"
 
 namespace dnc{
 	namespace Web{
@@ -10,11 +8,19 @@ namespace dnc{
 
 		GET::~GET(){}
 
+		std::string GET::ToString() {
+			return std::string("System.Web.Get");
+		}
+
+		std::string GET::GetTypeString() {
+			return std::string("Get");
+		}
+
 		bool GET::isset(String key){
 			bool res = false;
 			std::map<std::string, std::string>::iterator it;
 
-			it = this->kv_map.find(key.getStringValue());
+			it = this->kv_map.find(key.GetStringValue());
 
 			return it != this->kv_map.end();
 		}
@@ -32,7 +38,7 @@ namespace dnc{
 		}
 
 		String GET::operator[](String & key){
-			return String(&this->kv_map.at(key.getStringValue()));
+			return String(&this->kv_map.at(key.GetStringValue()));
 		}
 	}
 }

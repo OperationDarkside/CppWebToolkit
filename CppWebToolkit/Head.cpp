@@ -10,5 +10,11 @@ namespace dnc{
 
 
 		Head::~Head(){}
+		std::string Head::ToString() {
+			return std::string("System.Web.Head");
+		}
+		std::string Head::GetTypeString() {
+			return std::string("Head");
+		}
 	}
 }

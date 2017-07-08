@@ -1,7 +1,5 @@
 #pragma once
 #include "Request.h"
-#include "DNC\String.h"
-#include "DNC\List.h"
 
 namespace dnc{
 	namespace Web{
@@ -10,6 +8,14 @@ namespace dnc{
 
 
 		Request::~Request(){}
+
+		std::string Request::ToString() {
+			return std::string("System.Web.Request");
+		}
+
+		std::string Request::GetTypeString() {
+			return std::string("Request");
+		}
 
 		void Request::GetEnv(){
 			long content_len = 0;

@@ -4,7 +4,10 @@
 namespace dnc{
 	namespace Web{
 
-		Li::Li(){}
+		Li::Li(){
+			this->html_part1 = "<li>";
+			this->html_part2 = "</li>";
+		}
 
 
 		Li::~Li(){}
@@ -12,7 +15,7 @@ namespace dnc{
 		std::string Li::ToString(){
 			return std::string("System.Web.Li");
 		}
-		std::string Li::getTypeString(){
+		std::string Li::GetTypeString(){
 			return std::string("Li");
 		}
 

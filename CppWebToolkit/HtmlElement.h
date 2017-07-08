@@ -1,14 +1,20 @@
 #pragma once
+
+#ifndef HTMLELEMENT_H
+#define HTMLELEMENT_H
+
 #include "HtmlAttribute.h"
 #include "HtmlDataAttribute.h"
-#include "DNC\List.h"
-
+#include <memory>
+//#include "List.h"
 
 namespace dnc{
 	namespace Web{
 		class HtmlElement: public Object{
 		public:
 			HtmlElement();
+			//HtmlElement(const HtmlElement& ele);
+			//HtmlElement(HtmlElement&& ele);
 			~HtmlElement();
 
 			/**
@@ -16,7 +22,8 @@ namespace dnc{
 
 			@param element HtmlElement to add
 			*/
-			void AddElement(HtmlElement* element);
+			template <typename T>
+			void AddElement(T& element);
 
 			/**
 			Returns the Html String of this instance including its children
@@ -75,8 +82,11 @@ namespace dnc{
 			bool Translate();
 			void Translate(bool value);
 
-			std::string toString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
+
+			//HtmlElement& operator=(HtmlElement& ele);
+			//HtmlElement& operator=(HtmlElement&& ele);
 		protected:
 			/*Open Tag*/
 			String html_part1;
@@ -85,8 +95,8 @@ namespace dnc{
 			/*Inner Text*/
 			String innerText;
 			/*Sub-Elements*/
-			Collections::Generic::List<HtmlElement*> children;
-
+			Collections::Generic::List<std::shared_ptr<HtmlElement>> children;
+			//Collections::Generic::List<HtmlElement*> children;
 			//Attributes
 			/* true/false are represented as integer:
 				0 == not set
@@ -112,5 +122,17 @@ namespace dnc{
 
 			virtual String getAttributeString();
 		};
+
+		template <typename T>
+		void HtmlElement::AddElement(T& element) {
+			HtmlElement* ele = static_cast<HtmlElement*>(&element);
+
+			if(ele != nullptr) {
+				this->children.Add(std::make_shared<T>(element));
+			} else {
+				throw "Not a HtmlElement!";
+			}
+		}
 	}
 }
+#endif // !HTMLELEMENT_H

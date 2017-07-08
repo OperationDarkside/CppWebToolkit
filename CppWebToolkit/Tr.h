@@ -1,17 +1,17 @@
 #pragma once
 
-#ifndef HEAD_H
-#define HEAD_H
+#ifndef TR_H
+#define TR_H
 
 #include "HtmlElement.h"
 
-namespace dnc{
-	namespace Web{
+namespace dnc {
+	namespace Web {
 
-		class Head: public HtmlElement{
+		class Tr : public HtmlElement {
 		public:
-			Head();
-			~Head();
+			Tr();
+			~Tr();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;

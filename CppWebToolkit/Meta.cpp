@@ -14,7 +14,7 @@ namespace dnc{
 		std::string Meta::ToString(){
 			return std::string("System.Web.Meta");
 		}
-		std::string Meta::getTypeString(){
+		std::string Meta::GetTypeString(){
 			return std::string("Meta");
 		}
 

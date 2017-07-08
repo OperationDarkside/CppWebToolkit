@@ -6,11 +6,12 @@
 #include "Request.h"
 #include "FORM.h"
 #include "Response.h"
-#include "DNC\String.h"
+#include "String.h"
 #include "Head.h"
 #include "Meta.h"
 #include "Title.h"
 #include "CharSets.h"
+#include <chrono>
 
 //using namespace dnc;
 //using namespace dnc::Web;
@@ -29,8 +30,10 @@ int main(){
 	dnc::Web::Form form;
 	dnc::Web::Response resp;
 
-	//putenv("QUERY_STRING=prename=Marvin&lastname=Smith");
-	//putenv("REQUEST_METHOD=GET");
+	putenv("QUERY_STRING=prename=Marvin&lastname=Smith");
+	putenv("REQUEST_METHOD=GET");
+
+	std::chrono::time_point<std::chrono::system_clock> t1 = std::chrono::system_clock::now();
 
 	req.GetEnv();
 	g = req.GetValues();
@@ -51,16 +54,28 @@ int main(){
 
 	meta.CharSet(dnc::Web::CharSets::UTF8);
 	title.SetText(dnc::String("Does this work?"));
-	head.AddElement(&title);
-	head.AddElement(&meta);
+	head.AddElement(title);
+	head.AddElement(meta);
 	
-	body.AddElement(&h1);
-	body.AddElement(&p);
-	body.AddElement(&form);
+	body.AddElement(h1);
+	body.AddElement(p);
 
-	html.AddElement(&head);
-	html.AddElement(&body);
+	{
+		dnc::Web::Paragraph para;
+		para.InnerText(dnc::String("Falala"));
+		body.AddElement(para);
+	}
+
+	body.AddElement(form);
+
+	html.AddElement(head);
+	html.AddElement(body);
 
 	resp.Html(html);
 	resp.Send();
+
+	std::chrono::time_point<std::chrono::system_clock> t2 = std::chrono::system_clock::now();
+
+	std::chrono::microseconds diff = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1);
+	std::cout << std::endl << diff.count() << std::endl;
 }

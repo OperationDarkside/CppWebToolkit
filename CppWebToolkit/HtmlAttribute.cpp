@@ -11,6 +11,14 @@ namespace dnc{
 
 		HtmlAttribute::~HtmlAttribute(){}
 
+		std::string HtmlAttribute::ToString() {
+			return std::string("System.Web.HtmlAttribute");
+		}
+
+		std::string HtmlAttribute::GetTypeString() {
+			return std::string("HtmlAttribute");
+		}
+
 		String& HtmlAttribute::Name(){
 			return this->name;
 		}

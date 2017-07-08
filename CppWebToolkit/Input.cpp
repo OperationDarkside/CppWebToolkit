@@ -11,7 +11,7 @@ namespace dnc {
 
 		Input::~Input() {}
 		std::string Input::ToString() {
-			return std::string("System.Html.Input");
+			return std::string("System.Web.Input");
 		}
 		std::string Input::GetTypeString() {
 			return std::string("Input");
@@ -78,10 +78,10 @@ namespace dnc {
 			this->formenctype = value;
 		}
 		FormMethods Input::FormMethod() {
-			return this->formmethod;
+			return this->formmeth;
 		}
 		void Input::FormMethod(FormMethods value) {
-			this->formmethod = value;
+			this->formmeth = value;
 		}
 		bool Input::FormNoValidate() {
 			return this->formnovalidate;
@@ -247,10 +247,10 @@ namespace dnc {
 				res += " formenctype=\"" + this->formenctype + "\"";
 			}
 			// FORMMETHOD
-			if(this->formmethod != FormMethods::None) {
+			if(this->formmeth != FormMethods::None) {
 				res += " formmethod=\"";
 
-				switch(this->formmethod) {
+				switch(this->formmeth) {
 					case FormMethods::Get:
 						res += "get\"";
 						break;

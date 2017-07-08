@@ -1,4 +1,5 @@
 #include "HtmlElement.h"
+#include "Meta.h"
 
 
 namespace dnc{
@@ -6,11 +7,27 @@ namespace dnc{
 
 		HtmlElement::HtmlElement(){}
 
+		//HtmlElement::HtmlElement(const HtmlElement & ele) {}
+
+		//HtmlElement::HtmlElement(HtmlElement && ele) {}
+
 		HtmlElement::~HtmlElement(){}
 
-		void HtmlElement::AddElement(HtmlElement* element){
-			this->children.Add(element);
+		/*
+		template <typename T>
+		void HtmlElement::AddElement(T& element){
+			//std::unique_ptr<HtmlElement> temp(new HtmlElement(element));
+			HtmlElement* ele = static_cast<HtmlElement*>(element);
+
+			if(ele != nullptr) {
+				this->children.Add(std::make_shared<T>(element));
+			} else {
+				throw "Not a HtmlElement!";
+			}
+			//this->children.Add(&element);
+			//this->ch.push_back(std::make_unique<String>());
 		}
+		*/
 
 		String HtmlElement::toHtml(){
 			size_t len_SubElements = 0;
@@ -18,7 +35,7 @@ namespace dnc{
 			String strAttr;
 
 			// Add HtmlAttributes
-			strAttr = getAttributeString();
+			strAttr = this->getAttributeString();
 			this->html_part1.insert(this->html_part1.length() - 1, &strAttr);
 
 			// Add Sub-HtmlElements
@@ -26,13 +43,16 @@ namespace dnc{
 
 			// Add inner text
 			str += this->innerText;
-
+			
 			len_SubElements = this->children.Count();
 			for(size_t i = 0; i < len_SubElements; i++){
-				HtmlElement* ele = this->children[i];
+				HtmlElement* ele = this->children[i].get();
 				str += ele->toHtml();
-			}
 
+				Meta* mt = dynamic_cast<Meta*>(ele);
+				int intel = 0;
+			}
+			
 			str += this->html_part2;
 
 			return str;
@@ -184,14 +204,50 @@ namespace dnc{
 			this->translate = value ? 1 : 2;
 		}
 
-		std::string HtmlElement::toString(){
+		std::string HtmlElement::ToString(){
 			return std::string("System.Web.HtmlElement");
 		}
 
-		std::string HtmlElement::getTypeString(){
+		std::string HtmlElement::GetTypeString(){
 			return std::string("HtmlElement");
 		}
 
+		/*
+		HtmlElement & HtmlElement::operator=(HtmlElement & ele) {
+			if(this != &ele) {
+				this->accessKey = ele.accessKey;
+				//this->children = ele.children;
+				this->contentEditable = ele.contentEditable;
+				this->contextMenu = ele.contextMenu;
+				this->dataAttributes = ele.dataAttributes;
+				this->dir = ele.dir;
+				this->draggable = ele.draggable;
+				this->dropzone = ele.dropzone;
+				this->hidden = ele.hidden;
+				this->html_part1 = ele.html_part1;
+				this->html_part2 = ele.html_part2;
+				this->id = ele.id;
+				this->innerText = ele.innerText;
+				this->lang = ele.lang;
+				this->spellcheck = ele.spellcheck;
+				this->style = ele.style;
+				this->tabIndex = ele.tabIndex;
+				this->title = ele.title;
+				this->translate = ele.translate;
+				this->_class = ele._class;
+			}
+
+			return *this;
+		}
+		
+		HtmlElement & HtmlElement::operator=(HtmlElement && ele) {
+			if(this != &ele) {
+				*this = std::move(ele);
+			}
+
+			return *this;
+		}
+		*/
 		String HtmlElement::getAttributeString(){
 			String res;
 

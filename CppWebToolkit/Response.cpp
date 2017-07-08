@@ -5,12 +5,12 @@ namespace dnc{
 
 		Response::Response(){}
 
-
 		Response::~Response(){}
+
 		std::string Response::ToString(){
 			return std::string("System.Web.Response");
 		}
-		std::string Response::getTypeString(){
+		std::string Response::GetTypeString(){
 			return std::string("Response");
 		}
 		dnc::Web::Html Response::Html(){
@@ -23,7 +23,7 @@ namespace dnc{
 
 		void Response::Send(){
 			std::cout << "Content-type:text/html\r\n\r\n";
-			std::cout << this->html.toHtml().getStringValue();
+			std::cout << this->html.toHtml().GetStringValue();
 		}
 	}
 }

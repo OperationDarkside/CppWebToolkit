@@ -1,9 +1,42 @@
 #pragma once
 
+#ifndef INPUT_H
+#define INPUT_H
+
 #include "HtmlElement.h"
 
 namespace dnc {
 	namespace Web {
+
+		enum FormMethods {
+			None = 0,
+			Get = 1,
+			Post = 2
+		};
+		enum InputType {
+			Button = 0,
+			Checkbox = 1,
+			Color = 2,
+			Date = 3,
+			DateTimeLocal = 4,
+			Email = 5,
+			File = 6,
+			Hidden = 7,
+			Image = 8,
+			Month = 9,
+			Number = 10,
+			Password = 11,
+			Radio = 12,
+			Range = 13,
+			Reset = 14,
+			Search = 15,
+			Submit = 16,
+			Tel = 17,
+			Text = 18,
+			Time = 19,
+			Url = 20,
+			Week = 21
+		};
 
 		class Input : public HtmlElement {
 		public:
@@ -86,7 +119,7 @@ namespace dnc {
 			String form;
 			String formaction;
 			String formenctype;
-			FormMethods formmethod;
+			FormMethods formmeth;
 			bool formnovalidate = false;
 			String formtarget;
 			String height;
@@ -111,34 +144,7 @@ namespace dnc {
 			String getAttributeString() override;
 		};
 
-		enum FormMethods {
-			None = 0,
-			Get = 1,
-			Post = 2
-		};
-		enum InputType {
-			Button = 0,
-			Checkbox = 1,
-			Color = 2,
-			Date = 3,
-			DateTimeLocal = 4,
-			Email = 5,
-			File = 6,
-			Hidden = 7,
-			Image = 8,
-			Month = 9,
-			Number = 10,
-			Password = 11,
-			Radio = 12,
-			Range = 13,
-			Reset = 14,
-			Search = 15,
-			Submit = 16,
-			Tel = 17,
-			Text = 18,
-			Time = 19,
-			Url = 20,
-			Week = 21
-		};
+		
 	}
 }
+#endif

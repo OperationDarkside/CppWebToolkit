@@ -12,7 +12,7 @@ namespace dnc{
 			return std::string("System.Web.A");
 		}
 
-		std::string A::getTypeString(){
+		std::string A::GetTypeString(){
 			return std::string("A");
 		}
 

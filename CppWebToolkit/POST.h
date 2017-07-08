@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef POST_H
+#define POST_H
+
 #include "DNC/String.h"
 #include <map>
 
@@ -8,6 +12,9 @@ namespace dnc{
 		public:
 			POST();
 			~POST();
+
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			void setMap(std::map<std::string, std::string> m);
 
@@ -20,3 +27,4 @@ namespace dnc{
 		};
 	}
 }
+#endif

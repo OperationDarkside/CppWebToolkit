@@ -9,11 +9,11 @@ namespace dnc{
 
 		HtmlDataAttribute::~HtmlDataAttribute(){}
 
-		std::string HtmlDataAttribute::toString(){
-			return std::string("System.Html.HtmlDataAttribute");
+		std::string HtmlDataAttribute::ToString(){
+			return std::string("System.Web.HtmlDataAttribute");
 		}
 
-		std::string HtmlDataAttribute::getTypeString(){
+		std::string HtmlDataAttribute::GetTypeString(){
 			return std::string("HtmlDataAttribute");
 		}
 

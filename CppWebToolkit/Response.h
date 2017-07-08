@@ -1,5 +1,9 @@
 #pragma once
-#include "DNC/String.h"
+
+#ifndef RESPONSE_H
+#define RESPONSE_H
+
+#include "String.h"
 #include "Html.h"
 #include <iostream>
 
@@ -11,8 +15,8 @@ namespace dnc{
 			Response();
 			~Response();
 
-			std::string ToString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			dnc::Web::Html Html();
 			void Html(dnc::Web::Html value);
@@ -24,3 +28,4 @@ namespace dnc{
 		};
 	}
 }
+#endif

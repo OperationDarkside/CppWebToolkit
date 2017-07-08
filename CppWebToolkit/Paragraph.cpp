@@ -9,6 +9,14 @@ namespace dnc{
 		}
 		Paragraph::~Paragraph(){}
 
+		std::string Paragraph::ToString() {
+			return std::string("System.Web.Paragraph");
+		}
+
+		std::string Paragraph::GetTypeString() {
+			return std::string("Paragraph");
+		}
+
 
 		String Paragraph::InnerText(){
 			return this->innerText;

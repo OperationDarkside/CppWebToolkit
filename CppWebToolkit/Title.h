@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef TITLE_H
+#define TITLE_H
+
 #include "HtmlElement.h"
 
 namespace dnc{
@@ -9,8 +13,8 @@ namespace dnc{
 			Title();
 			~Title();
 
-			std::string ToString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			//String toHtml() override;
 
@@ -21,3 +25,4 @@ namespace dnc{
 		};
 	}
 }
+#endif

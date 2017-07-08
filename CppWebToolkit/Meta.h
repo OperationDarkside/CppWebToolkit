@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef META_H
+#define META_H
+
 #include "HtmlElement.h"
 #include "CharSets.h"
 
@@ -10,8 +14,8 @@ namespace dnc{
 			Meta();
 			~Meta();
 
-			std::string ToString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			// CHARSET
 			CharSets CharSet();
@@ -34,7 +38,8 @@ namespace dnc{
 			String httpEquiv;
 			String name;
 
-			String getAttributeString() override;
+			virtual String getAttributeString() override;
 		};
 	}
 }
+#endif

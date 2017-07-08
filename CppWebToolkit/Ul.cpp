@@ -10,7 +10,7 @@ namespace dnc{
 		std::string Ul::ToString(){
 			return std::string("System.Web.Ul");
 		}
-		std::string Ul::getTypeString(){
+		std::string Ul::GetTypeString(){
 			return std::string("Ul");
 		}
 	}

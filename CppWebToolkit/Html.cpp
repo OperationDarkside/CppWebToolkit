@@ -13,5 +13,11 @@ namespace dnc{
 
 
 		Html::~Html(){}
+		std::string Html::ToString() {
+			return std::string("System.Web.Html");
+		}
+		std::string Html::GetTypeString() {
+			return std::string("Html");
+		}
 	}
 }

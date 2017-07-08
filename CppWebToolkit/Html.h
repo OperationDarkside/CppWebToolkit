@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HTML_H
+#define HTML_H
+
 #include "HtmlElement.h"
 
 namespace dnc{
@@ -8,6 +12,10 @@ namespace dnc{
 		public:
 			Html();
 			~Html();
+
+			std::string ToString() override;
+			std::string GetTypeString() override;
 		};
 	}
 }
+#endif

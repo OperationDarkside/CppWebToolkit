@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef DIV_H
+#define DIV_H
+
 #include "HtmlElement.h"
 
 namespace dnc{
@@ -9,8 +13,8 @@ namespace dnc{
 			Div();
 			~Div();
 
-			std::string ToString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			// INNER TEXT
 			String InnerText();
@@ -18,3 +22,4 @@ namespace dnc{
 		};
 	}
 }
+#endif // !DIV_H

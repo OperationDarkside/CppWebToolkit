@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef FORM_H
+#define FORM_H
+
 #include "HtmlElement.h"
 
 namespace dnc{
@@ -52,3 +55,4 @@ namespace dnc{
 		};
 	}
 }
+#endif

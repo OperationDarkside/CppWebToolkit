@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef A_H
+#define A_H
+
 #include "HtmlElement.h"
 
 namespace dnc{
@@ -34,8 +38,8 @@ namespace dnc{
 			A();
 			~A();
 
-			std::string ToString();
-			std::string getTypeString();
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			// DOWNLOAD
 			String Download();
@@ -84,3 +88,4 @@ namespace dnc{
 
 	}
 }
+#endif // !A_H

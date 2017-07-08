@@ -1,17 +1,17 @@
 #pragma once
 
-#ifndef HEAD_H
-#define HEAD_H
+#ifndef TABLE_H
+#define TABLE_H
 
 #include "HtmlElement.h"
 
-namespace dnc{
-	namespace Web{
+namespace dnc {
+	namespace Web {
 
-		class Head: public HtmlElement{
+		class Table : public HtmlElement {
 		public:
-			Head();
-			~Head();
+			Table();
+			~Table();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;

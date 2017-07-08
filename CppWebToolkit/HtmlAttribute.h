@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HTMLATTRIBUTE_H
+#define HTMLATTRIBUTE_H
+
 #include "DNC/String.h"
 
 namespace dnc{
@@ -8,6 +12,9 @@ namespace dnc{
 			HtmlAttribute();
 			HtmlAttribute(String& name, String& value);
 			~HtmlAttribute();
+
+			std::string ToString() override;
+			std::string GetTypeString() override;
 
 			String& Name();
 			void Name(String& name);
@@ -20,3 +27,4 @@ namespace dnc{
 		};
 	}
 }
+#endif

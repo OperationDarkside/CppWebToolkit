@@ -15,7 +15,7 @@ namespace dnc{
 			return std::string("System.Web.Title");
 		}
 
-		std::string Title::getTypeString(){
+		std::string Title::GetTypeString(){
 			return std::string("Title");
 		}
 

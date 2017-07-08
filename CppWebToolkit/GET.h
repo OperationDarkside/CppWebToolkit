@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef GET_H
+#define GET_H
+
 #include "DNC/String.h"
 #include <map>
 
@@ -14,6 +18,9 @@ namespace dnc{
 			GET();
 			~GET();
 
+			std::string ToString() override;
+			std::string GetTypeString() override;
+
 			bool isset(String key);
 
 			String operator[](char* key);
@@ -27,3 +34,4 @@ namespace dnc{
 		};
 	}
 }
+#endif
