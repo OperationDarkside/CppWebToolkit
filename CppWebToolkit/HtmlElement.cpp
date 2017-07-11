@@ -47,6 +47,7 @@ namespace dnc{
 			len_SubElements = this->children.Count();
 			for(size_t i = 0; i < len_SubElements; i++){
 				HtmlElement* ele = this->children[i].get();
+
 				str += ele->toHtml();
 
 				Meta* mt = dynamic_cast<Meta*>(ele);

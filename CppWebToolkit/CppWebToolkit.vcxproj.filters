@@ -99,6 +99,12 @@
     <ClCompile Include="Th.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Widget.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="HtmlDataTable.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HtmlElement.h">
@@ -183,6 +189,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Th.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HtmlDataTable.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

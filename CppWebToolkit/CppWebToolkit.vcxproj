@@ -137,6 +137,7 @@
     <ClCompile Include="Html.cpp" />
     <ClCompile Include="HtmlAttribute.cpp" />
     <ClCompile Include="HtmlDataAttribute.cpp" />
+    <ClCompile Include="HtmlDataTable.cpp" />
     <ClCompile Include="HtmlElement.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Li.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Tr.cpp" />
     <ClCompile Include="Ul.cpp" />
+    <ClCompile Include="Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="A.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="Html.h" />
     <ClInclude Include="HtmlAttribute.h" />
     <ClInclude Include="HtmlDataAttribute.h" />
+    <ClInclude Include="HtmlDataTable.h" />
     <ClInclude Include="HtmlElement.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Li.h" />
@@ -185,6 +188,7 @@
     <ClInclude Include="Title.h" />
     <ClInclude Include="Tr.h" />
     <ClInclude Include="Ul.h" />
+    <ClInclude Include="Widget.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -22,6 +22,10 @@ namespace dnc {
 			String Headers();
 			void Headers(String value);
 
+			// INNER TEXT
+			String InnerText();
+			void InnerText(String value);
+
 			int RowSpan();
 			void RowSpan(int value);
 

@@ -42,6 +42,14 @@ namespace dnc {
 			this->headers = value;
 		}
 
+		String Th::InnerText() {
+			return this->innerText;
+		}
+
+		void Th::InnerText(String value) {
+			this->innerText = value;
+		}
+
 		int Th::RowSpan() {
 			return this->rowspan;
 		}

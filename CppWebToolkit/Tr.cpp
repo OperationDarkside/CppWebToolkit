@@ -3,7 +3,10 @@
 namespace dnc {
 	namespace Web {
 
-		Tr::Tr() {}
+		Tr::Tr() {
+			this->html_part1 = new String("<tr>");
+			this->html_part2 = new String("</tr>");
+		}
 
 
 		Tr::~Tr() {}

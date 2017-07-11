@@ -12,6 +12,7 @@
 #include "Title.h"
 #include "CharSets.h"
 #include <chrono>
+#include "HtmlDataTable.h"
 
 //using namespace dnc;
 //using namespace dnc::Web;
@@ -30,8 +31,8 @@ int main(){
 	dnc::Web::Form form;
 	dnc::Web::Response resp;
 
-	putenv("QUERY_STRING=prename=Marvin&lastname=Smith");
-	putenv("REQUEST_METHOD=GET");
+	//putenv("QUERY_STRING=prename=Marvin&lastname=Smith");
+	//putenv("REQUEST_METHOD=GET");
 
 	std::chrono::time_point<std::chrono::system_clock> t1 = std::chrono::system_clock::now();
 
@@ -68,6 +69,31 @@ int main(){
 
 	body.AddElement(form);
 
+	// DATATABLE TEST
+	dnc::Data::DataTable table2("dsfgdfg");
+	table2.Columns().Add(dnc::Data::DataColumn("Vorname", dnc::Type::getType<dnc::String>(dnc::String())));
+
+	dnc::Data::DataColumn col2("Nachname", dnc::Type::getType<dnc::String>(dnc::String()));
+	table2.Columns().Add(col2);
+	table2.Columns().Add(dnc::Data::DataColumn("Pisse", dnc::Type::getType<dnc::String>(dnc::String())));
+
+	dnc::Data::DataRow row2 = table2.NewRow();
+	row2.SetField<dnc::String>(0, dnc::String("Heinz"));
+	row2.SetField<dnc::String>(1, dnc::String("Herrmann"));
+	row2.SetField<dnc::String>(2, dnc::String("aus dem Arsch"));
+	table2.Rows().Add(row2);
+
+	dnc::Data::DataRow row3 = table2.NewRow();
+	row3.SetField<dnc::String>(0, dnc::String("Peter"));
+	row3.SetField<dnc::String>(1, dnc::String("Norbert"));
+	row3.SetField<dnc::String>(2, dnc::String("Fehler"));
+	table2.Rows().Add(row3);
+
+	dnc::Web::HtmlDataTable htable;
+	htable.FromDataTable(table2);
+	body.AddElement(htable);
+
+
 	html.AddElement(head);
 	html.AddElement(body);
 
@@ -78,4 +104,6 @@ int main(){
 
 	std::chrono::microseconds diff = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1);
 	std::cout << std::endl << diff.count() << std::endl;
+
+	//system("PAUSE");
 }
