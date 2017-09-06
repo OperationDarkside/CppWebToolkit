@@ -150,6 +150,7 @@
     <ClCompile Include="Tbody.cpp" />
     <ClCompile Include="Td.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="Tfoot.cpp" />
     <ClCompile Include="Th.cpp" />
     <ClCompile Include="Thead.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Table.h" />
     <ClInclude Include="Tbody.h" />
     <ClInclude Include="Td.h" />
+    <ClInclude Include="TextBox.h" />
     <ClInclude Include="Tfoot.h" />
     <ClInclude Include="Th.h" />
     <ClInclude Include="Thead.h" />

@@ -63,6 +63,9 @@ namespace dnc{
 			// ID
 			String& ID();
 			void ID(String& value);
+			// Inner Html
+			String& InnerHtml();
+			void InnerHtml(String& value);
 			// Lang
 			String& Lang();
 			void Lang(String& value);
@@ -125,6 +128,7 @@ namespace dnc{
 
 		template <typename T>
 		void HtmlElement::AddElement(T& element) {
+			static_assert(std::is_base_of<HtmlElement, T>::value, "HtmlElement::AddElement - Template does not derive from HtmlElement.");
 			HtmlElement* ele = static_cast<HtmlElement*>(&element);
 
 			if(ele != nullptr) {

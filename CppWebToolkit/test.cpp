@@ -13,6 +13,7 @@
 #include "CharSets.h"
 #include <chrono>
 #include "HtmlDataTable.h"
+#include "TextBox.h"
 
 //using namespace dnc;
 //using namespace dnc::Web;
@@ -93,6 +94,9 @@ int main(){
 	htable.FromDataTable(table2);
 	body.AddElement(htable);
 
+	dnc::Web::TextBox tb;
+	tb.SetText(dnc::String("Blasendropp"));
+	body.AddElement(tb);
 
 	html.AddElement(head);
 	html.AddElement(body);

@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Quelldateien\Widget">
+      <UniqueIdentifier>{a675fbda-18eb-45ee-928a-48eaaf9b39b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Widget">
+      <UniqueIdentifier>{3a23b561-2e94-4413-9d4d-9fa5abc0e70d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -99,11 +105,14 @@
     <ClCompile Include="Th.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Widget.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="HtmlDataTable.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget.cpp">
+      <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Quelldateien\Widget</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -191,11 +200,14 @@
     <ClInclude Include="Th.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Widget.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="HtmlDataTable.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget.h">
+      <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Headerdateien\Widget</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

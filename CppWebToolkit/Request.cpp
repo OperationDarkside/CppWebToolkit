@@ -42,13 +42,13 @@ namespace dnc{
 			if(req_method_get.compare(method) == 0){
 				if(query_cstr != nullptr){
 					q_str = query_cstr;
-					if(q_str.contains("&")){
+					if(q_str.Contains("&")){
 
-						pairs = q_str.split('&');
+						pairs = q_str.Split('&');
 
 						len = pairs.Count();
 						for(size_t i = 0; i < len; i++){
-							kv = pairs[i].split("=");
+							kv = pairs[i].Split("=");
 
 							val1 = UriDecode(kv[0].GetStringValue());
 							val2 = UriDecode(kv[1].GetStringValue());
@@ -56,7 +56,7 @@ namespace dnc{
 							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
-						kv = q_str.split(&String("="));
+						kv = q_str.Split(&String("="));
 
 						val1 = UriDecode(kv[0].GetStringValue());
 						val2 = UriDecode(kv[1].GetStringValue());
@@ -75,13 +75,13 @@ namespace dnc{
 
 				if(str_post != nullptr){
 					q_str = String(str_post);
-					if(q_str.contains("&")){
+					if(q_str.Contains("&")){
 
-						pairs = q_str.split('&');
+						pairs = q_str.Split('&');
 
 						len = pairs.Count();
 						for(size_t i = 0; i < len; i++){
-							kv = pairs[i].split("=");
+							kv = pairs[i].Split("=");
 
 							val1 = UriDecode(kv[0].GetStringValue());
 							val2 = UriDecode(kv[1].GetStringValue());
@@ -89,7 +89,7 @@ namespace dnc{
 							getMap.insert(std::pair<std::string, std::string>(val1, val2));
 						}
 					} else{
-						kv = q_str.split(&String("="));
+						kv = q_str.Split(&String("="));
 
 						val1 = UriDecode(kv[0].GetStringValue());
 						val2 = UriDecode(kv[1].GetStringValue());

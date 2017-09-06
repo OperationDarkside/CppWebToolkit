@@ -36,7 +36,7 @@ namespace dnc{
 
 			// Add HtmlAttributes
 			strAttr = this->getAttributeString();
-			this->html_part1.insert(this->html_part1.length() - 1, &strAttr);
+			this->html_part1.Insert(this->html_part1.Length() - 1, &strAttr);
 
 			// Add Sub-HtmlElements
 			str += this->html_part1;
@@ -151,6 +151,14 @@ namespace dnc{
 
 		void HtmlElement::ID(String & value){
 			this->id = value;
+		}
+
+		String & HtmlElement::InnerHtml() {
+			return this->innerText;
+		}
+
+		void HtmlElement::InnerHtml(String & value) {
+			this->innerText = value;
 		}
 
 		String & HtmlElement::Lang(){
