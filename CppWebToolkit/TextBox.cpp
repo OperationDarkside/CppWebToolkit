@@ -8,6 +8,14 @@ namespace dnc {
 		}
 		TextBox::~TextBox() {}
 
+		std::string TextBox::ToString() {
+			return std::string("System.Web.TextBox");
+		}
+
+		std::string TextBox::GetTypeString() {
+			return std::string("TextBox");
+		}
+
 		void TextBox::SetText(String & txt) {
 			in.Value(txt);
 		}

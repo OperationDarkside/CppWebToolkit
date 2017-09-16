@@ -1,17 +1,17 @@
 #pragma once
 
-#ifndef TEXTBOX_H
-#define TEXTBOX_H
+#ifndef PASSWORDFIELD_H
+#define PASSWORDFIELD_H
 
 #include "Widget.h"
 #include "Input.h"
 
 namespace dnc {
 	namespace Web {
-		class TextBox : public Widget {
+		class PasswordField : public Widget {
 		public:
-			TextBox();
-			~TextBox();
+			PasswordField();
+			~PasswordField();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;
@@ -24,4 +24,4 @@ namespace dnc {
 		};
 	}
 }
-#endif // !TEXTBOX_H
+#endif // !PASSWORDFIELD_H

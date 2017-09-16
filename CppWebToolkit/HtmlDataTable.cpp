@@ -12,6 +12,14 @@ namespace dnc {
 
 		HtmlDataTable::~HtmlDataTable() {}
 
+		std::string HtmlDataTable::ToString() {
+			return std::string("System.Web.HtmlDataTable");
+		}
+
+		std::string HtmlDataTable::GetTypeString() {
+			return std::string("HtmlDataTable");
+		}
+
 		void HtmlDataTable::FromDataTable(Data::DataTable & table) {
 			long numCols = 0;
 			long numRows = 0;

@@ -8,6 +8,14 @@ namespace dnc {
 
 		Widget::~Widget() {}
 
+		std::string Widget::ToString() {
+			return std::string("System.Web.Widget");
+		}
+
+		std::string Widget::GetTypeString() {
+			return std::string("Widget");
+		}
+
 		String Widget::toHtml() {
 			size_t len_SubElements = 0;
 			String str;

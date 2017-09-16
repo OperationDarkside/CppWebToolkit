@@ -114,6 +114,12 @@
     <ClCompile Include="TextBox.cpp">
       <Filter>Quelldateien\Widget</Filter>
     </ClCompile>
+    <ClCompile Include="TextArea.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="PasswordField.cpp">
+      <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HtmlElement.h">
@@ -207,6 +213,12 @@
       <Filter>Headerdateien\Widget</Filter>
     </ClInclude>
     <ClInclude Include="TextBox.h">
+      <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="TextArea.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordField.h">
       <Filter>Headerdateien\Widget</Filter>
     </ClInclude>
   </ItemGroup>

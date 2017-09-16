@@ -15,6 +15,9 @@ namespace dnc {
 			HtmlDataTable();
 			~HtmlDataTable();
 
+			std::string ToString() override;
+			std::string GetTypeString() override;
+
 			void FromDataTable(Data::DataTable& table);
 			template<typename T>
 			void FromSerializable(Collections::Generic::List<T> list);

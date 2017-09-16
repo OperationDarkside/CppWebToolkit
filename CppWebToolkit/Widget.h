@@ -13,6 +13,9 @@ namespace dnc {
 			Widget();
 			virtual ~Widget();
 
+			std::string ToString() override;
+			std::string GetTypeString() override;
+
 			virtual String toHtml() override;
 		};
 
