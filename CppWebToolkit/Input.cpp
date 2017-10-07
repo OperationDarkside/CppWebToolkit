@@ -258,6 +258,7 @@ namespace dnc {
 						res += "post\"";
 						break;
 				}
+				res += "\"";
 			}
 			// FORMNOVALIDATE
 			if(this->formnovalidate) {

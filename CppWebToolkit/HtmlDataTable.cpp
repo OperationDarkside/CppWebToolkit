@@ -49,7 +49,7 @@ namespace dnc {
 				for(long g = 0; g < numCols; g++) {
 					Td cell;
 
-					cell.InnerText(String(&table[i][g]->ToString()));
+					cell.InnerText(String(table[i][g]->ToString()));
 
 					row.AddElement(cell);
 				}

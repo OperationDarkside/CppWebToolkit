@@ -16,7 +16,8 @@ namespace dnc {
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			void SetText(String& txt);
+			String& Text();
+			void Text(String& txt);
 
 			virtual String toHtml() override;
 		private:

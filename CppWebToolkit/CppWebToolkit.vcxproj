@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClCompile Include="A.cpp" />
     <ClCompile Include="Body.cpp" />
+    <ClCompile Include="CheckBox.cpp" />
+    <ClCompile Include="DatePicker.cpp" />
     <ClCompile Include="Div.cpp" />
     <ClCompile Include="FORM.cpp" />
     <ClCompile Include="GET.cpp" />
@@ -147,6 +149,7 @@
     <ClCompile Include="POST.cpp" />
     <ClCompile Include="Request.cpp" />
     <ClCompile Include="Response.cpp" />
+    <ClCompile Include="SubmitButton.cpp" />
     <ClCompile Include="Table.cpp" />
     <ClCompile Include="Tbody.cpp" />
     <ClCompile Include="Td.cpp" />
@@ -165,6 +168,8 @@
     <ClInclude Include="A.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="CharSets.h" />
+    <ClInclude Include="CheckBox.h" />
+    <ClInclude Include="DatePicker.h" />
     <ClInclude Include="Div.h" />
     <ClInclude Include="FORM.h" />
     <ClInclude Include="GET.h" />
@@ -183,6 +188,7 @@
     <ClInclude Include="POST.h" />
     <ClInclude Include="Request.h" />
     <ClInclude Include="Response.h" />
+    <ClInclude Include="SubmitButton.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Tbody.h" />
     <ClInclude Include="Td.h" />

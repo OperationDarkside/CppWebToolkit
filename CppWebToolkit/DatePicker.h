@@ -1,28 +1,31 @@
 #pragma once
 
-#ifndef PASSWORDFIELD_H
-#define PASSWORDFIELD_H
+#ifndef DATEPICKER_H
+#define DATEPICKER_H
 
 #include "Widget.h"
 #include "Input.h"
+#include "DNC\DateTime.h"
 
 namespace dnc {
 	namespace Web {
-		class PasswordField : public Widget {
+		class DatePicker : public Widget {
 		public:
-			PasswordField();
-			~PasswordField();
+			DatePicker();
+			DatePicker(DateTime _dt);
+			~DatePicker();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			String& Text();
-			void Text(String& txt);
+			DateTime& Date();
+			void Date(DateTime& _dt);
 
 			virtual String toHtml() override;
 		private:
+			DateTime dt;
 			Input in;
 		};
 	}
 }
-#endif // !PASSWORDFIELD_H
+#endif

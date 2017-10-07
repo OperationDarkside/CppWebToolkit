@@ -119,7 +119,7 @@ namespace dnc {
 			String form;
 			String formaction;
 			String formenctype;
-			FormMethods formmeth;
+			FormMethods formmeth = FormMethods::None;
 			bool formnovalidate = false;
 			String formtarget;
 			String height;

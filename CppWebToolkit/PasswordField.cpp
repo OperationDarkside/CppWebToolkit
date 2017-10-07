@@ -17,7 +17,11 @@ namespace dnc {
 			return std::string("PasswordField");
 		}
 
-		void PasswordField::SetText(String & txt) {
+		String & PasswordField::Text() {
+			return in.Value();
+		}
+
+		void PasswordField::Text(String & txt) {
 			in.Value(txt);
 		}
 

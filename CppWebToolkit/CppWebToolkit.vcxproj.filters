@@ -111,13 +111,22 @@
     <ClCompile Include="Widget.cpp">
       <Filter>Quelldateien\Widget</Filter>
     </ClCompile>
-    <ClCompile Include="TextBox.cpp">
-      <Filter>Quelldateien\Widget</Filter>
-    </ClCompile>
     <ClCompile Include="TextArea.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="PasswordField.cpp">
+      <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBox.cpp">
+      <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="DatePicker.cpp">
+      <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="SubmitButton.cpp">
       <Filter>Quelldateien\Widget</Filter>
     </ClCompile>
   </ItemGroup>
@@ -212,13 +221,22 @@
     <ClInclude Include="Widget.h">
       <Filter>Headerdateien\Widget</Filter>
     </ClInclude>
-    <ClInclude Include="TextBox.h">
-      <Filter>Headerdateien\Widget</Filter>
-    </ClInclude>
     <ClInclude Include="TextArea.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="PasswordField.h">
+      <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBox.h">
+      <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="SubmitButton.h">
+      <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="DatePicker.h">
       <Filter>Headerdateien\Widget</Filter>
     </ClInclude>
   </ItemGroup>

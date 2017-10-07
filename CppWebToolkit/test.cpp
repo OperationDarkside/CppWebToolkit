@@ -14,6 +14,9 @@
 #include <chrono>
 #include "HtmlDataTable.h"
 #include "TextBox.h"
+#include "PasswordField.h"
+#include "DatePicker.h"
+#include "CheckBox.h"
 
 //using namespace dnc;
 //using namespace dnc::Web;
@@ -95,8 +98,20 @@ int main(){
 	body.AddElement(htable);
 
 	dnc::Web::TextBox tb;
-	tb.SetText(dnc::String("Blasendropp"));
+	tb.Text(dnc::String("Blasendropp"));
 	body.AddElement(tb);
+
+	dnc::Web::PasswordField pf;
+	pf.Text(dnc::String("Lol"));
+	body.AddElement(pf);
+
+	dnc::Web::DatePicker dp;
+	dp.Date(dnc::DateTime(2017,10,7));
+	body.AddElement(dp);
+
+	dnc::Web::CheckBox cb;
+	cb.Checked(true);
+	body.AddElement(cb);
 
 	html.AddElement(head);
 	html.AddElement(body);

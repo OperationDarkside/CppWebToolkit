@@ -16,7 +16,11 @@ namespace dnc {
 			return std::string("TextBox");
 		}
 
-		void TextBox::SetText(String & txt) {
+		String & TextBox::Text() {
+			return in.Value();
+		}
+
+		void TextBox::Text(String & txt) {
 			in.Value(txt);
 		}
 

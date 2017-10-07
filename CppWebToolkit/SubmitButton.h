@@ -1,23 +1,24 @@
 #pragma once
 
-#ifndef PASSWORDFIELD_H
-#define PASSWORDFIELD_H
+#ifndef SUBMITBUTTON_H
+#define SUBMITBUTTON_H
 
 #include "Widget.h"
 #include "Input.h"
 
 namespace dnc {
 	namespace Web {
-		class PasswordField : public Widget {
+		class SubmitButton : public Widget {
 		public:
-			PasswordField();
-			~PasswordField();
+			SubmitButton();
+			SubmitButton(String& _caption);
+			~SubmitButton();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			String& Text();
-			void Text(String& txt);
+			String& Caption();
+			void Caption(String& _caption);
 
 			virtual String toHtml() override;
 		private:
@@ -25,4 +26,5 @@ namespace dnc {
 		};
 	}
 }
-#endif // !PASSWORDFIELD_H
+
+#endif

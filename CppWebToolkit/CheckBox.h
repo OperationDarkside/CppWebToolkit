@@ -1,23 +1,23 @@
 #pragma once
 
-#ifndef PASSWORDFIELD_H
-#define PASSWORDFIELD_H
+#ifndef CHECKBOX_H
+#define CHECKBOX_H
 
 #include "Widget.h"
 #include "Input.h"
 
 namespace dnc {
 	namespace Web {
-		class PasswordField : public Widget {
+		class CheckBox : public Widget {
 		public:
-			PasswordField();
-			~PasswordField();
+			CheckBox();
+			~CheckBox();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			String& Text();
-			void Text(String& txt);
+			bool Checked();
+			void Checked(bool value);
 
 			virtual String toHtml() override;
 		private:
@@ -25,4 +25,4 @@ namespace dnc {
 		};
 	}
 }
-#endif // !PASSWORDFIELD_H
+#endif
