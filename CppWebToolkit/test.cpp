@@ -17,6 +17,7 @@
 #include "PasswordField.h"
 #include "DatePicker.h"
 #include "CheckBox.h"
+#include "VerticalLayout.h"
 
 //using namespace dnc;
 //using namespace dnc::Web;
@@ -112,6 +113,17 @@ int main(){
 	dnc::Web::CheckBox cb;
 	cb.Checked(true);
 	body.AddElement(cb);
+
+	dnc::Web::VerticalLayout vLayout;
+	dnc::Web::TextBox tbBla1;
+	dnc::Web::TextBox tbBla2;
+	dnc::Web::TextBox tbBla3;
+	dnc::Web::TextBox tbBla4;
+	vLayout.AddWidget(tbBla1);
+	vLayout.AddWidget(tbBla2);
+	vLayout.AddWidget(tbBla3);
+	vLayout.AddWidget(tbBla4);
+	body.AddElement(vLayout);
 
 	html.AddElement(head);
 	html.AddElement(body);

@@ -262,69 +262,69 @@ namespace dnc{
 
 			// AccessKey
 			if(this->accessKey != ""){
-				res = " accesskey=\"" + this->accessKey + "\" ";
+				res = " accesskey=\"" + this->accessKey + "\"";
 			}
 			//Class
 			if(this->_class != ""){
-				res += "class=\"" + this->_class + "\" ";
+				res += " class=\"" + this->_class + "\"";
 			}
 			//ContentEditable
 			if(this->contentEditable != 0){
-				res += "contenteditable=\"" + std::to_string(this->contentEditable == 1 ? true : false) + "\" ";
+				res += " contenteditable=\"" + std::to_string(this->contentEditable == 1 ? true : false) + "\"";
 			}
 			//ContextMenu
 			if(this->contextMenu != ""){
-				res += "contextmenu=\"" + this->contextMenu + "\" ";
+				res += " contextmenu=\"" + this->contextMenu + "\"";
 			}
 			// Data-* Attributes
 			for(size_t i = 0; i < this->dataAttributes.Count(); i++){
 				HtmlDataAttribute attr = this->dataAttributes[i];
 
-				res += "data-" + attr.Name() + "=\"" + attr.Value() + "\" ";
+				res += " data-" + attr.Name() + "=\"" + attr.Value() + "\"";
 			}
 			// Dir
 			if(this->dir != ""){
-				res += "dir=\"" + this->dir + "\" ";
+				res += " dir=\"" + this->dir + "\"";
 			}
 			// Draggable
 			if(this->draggable != ""){
-				res += "draggable=\"" + this->draggable + "\" ";
+				res += " draggable=\"" + this->draggable + "\"";
 			}
 			// Dropzone
 			if(this->dropzone != ""){
-				res += "dropzone=\"" + this->dropzone + "\" ";
+				res += " dropzone=\"" + this->dropzone + "\"";
 			}
 			// Hidden
 			if(this->hidden == 1){
-				res += "hidden ";
+				res += " hidden";
 			}
 			// ID
 			if(this->id != ""){
-				res += "id=\"" + this->id + "\" ";
+				res += " id=\"" + this->id + "\"";
 			}
 			//Lang
 			if(this->lang != ""){
-				res += "lang=\"" + this->lang + "\" ";
+				res += " lang=\"" + this->lang + "\"";
 			}
 			// Spellcheck
 			if(this->spellcheck != 0){
-				res += "spellcheck=\"" + std::to_string(this->spellcheck == 1 ? true : false) + "\" ";
+				res += " spellcheck=\"" + std::to_string(this->spellcheck == 1 ? true : false) + "\"";
 			}
 			// Style
 			if(this->style != ""){
-				res += "style=\"" + this->style + "\" ";
+				res += " style=\"" + this->style + "\"";
 			}
 			// TabIndex
 			if(this->tabIndex > 0){
-				res += "tabindex=\"" + std::to_string(this->tabIndex) + "\" ";
+				res += " tabindex=\"" + std::to_string(this->tabIndex) + "\"";
 			}
 			// Title
 			if(this->title != ""){
-				res += "title=\"" + this->title + "\" ";
+				res += " title=\"" + this->title + "\"";
 			}
 			// Translate
 			if(this->translate != 0){
-				res += "translate=\"" + std::string(this->translate == 1 ? "yes" : "no") + "\" ";
+				res += " translate=\"" + std::string(this->translate == 1 ? "yes" : "no") + "\"";
 			}
 
 			return res;
