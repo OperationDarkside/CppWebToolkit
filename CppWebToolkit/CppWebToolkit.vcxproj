@@ -162,6 +162,7 @@
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Tr.cpp" />
     <ClCompile Include="Ul.cpp" />
+    <ClCompile Include="HorizontalLayout.cpp" />
     <ClCompile Include="VerticalLayout.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
@@ -201,6 +202,7 @@
     <ClInclude Include="Title.h" />
     <ClInclude Include="Tr.h" />
     <ClInclude Include="Ul.h" />
+    <ClInclude Include="HorizontalLayout.h" />
     <ClInclude Include="VerticalLayout.h" />
     <ClInclude Include="Widget.h" />
   </ItemGroup>

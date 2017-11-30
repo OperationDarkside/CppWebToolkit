@@ -22,6 +22,9 @@
     <Filter Include="Headerdateien\Layout">
       <UniqueIdentifier>{2fed5c93-3097-4cb5-87ec-d138c850e8c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Quelldateien\Layout">
+      <UniqueIdentifier>{c4461ab8-ff3b-43cd-b5ed-5481302d262d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -131,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="SubmitButton.cpp">
       <Filter>Quelldateien\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="HorizontalLayout.cpp">
+      <Filter>Quelldateien\Layout</Filter>
     </ClCompile>
     <ClCompile Include="VerticalLayout.cpp">
       <Filter>Quelldateien</Filter>
@@ -244,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="DatePicker.h">
       <Filter>Headerdateien\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="HorizontalLayout.h">
+      <Filter>Headerdateien\Layout</Filter>
     </ClInclude>
     <ClInclude Include="VerticalLayout.h">
       <Filter>Headerdateien</Filter>

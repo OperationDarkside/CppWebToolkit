@@ -1,18 +1,17 @@
 #pragma once
 
-
-#ifndef VERTICALLAYOUT_H
-#define VERTICALLAYOUT_H
+#ifndef HORIZONTALLAYOUT_H
+#define HORIZONTALLAYOUT_H
 
 #include "Div.h"
 #include "Widget.h"
 
 namespace dnc {
 	namespace Web {
-		class VerticalLayout : public Widget {
+		class HorizontalLayout : public Widget {
 		public:
-			VerticalLayout();
-			~VerticalLayout();
+			HorizontalLayout();
+			~HorizontalLayout();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;
@@ -28,14 +27,15 @@ namespace dnc {
 		};
 
 		template<typename T>
-		inline void VerticalLayout::AddWidget(T & component) {
-			static_assert(std::is_base_of<Widget, T>::value, "VerticalLayout::AddWidget - Template does not derive from Widget.");
+		inline void HorizontalLayout::AddWidget(T & component) {
+			static_assert(std::is_base_of<Widget, T>::value, "HorizontalLayout::AddWidget - Template does not derive from Widget.");
 
 			Div childWrapper;
 			childWrapper.AddElement(component);
-
+			
 			subElements.Add(childWrapper);
 		}
 	}
 }
-#endif // VERTICALLAYOUT_H
+
+#endif // !HORIZONTALLAYOUT_H

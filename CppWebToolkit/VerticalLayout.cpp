@@ -1,12 +1,12 @@
 #include "VerticalLayout.h"
 
+
 namespace dnc {
 	namespace Web {
 
 		VerticalLayout::VerticalLayout() {
-			root.Style(dnc::String("display: flex; flex-wrap: nowrap;"));
+			// root.Style(dnc::String("display: flex; flex-wrap: nowrap;"));
 		}
-
 
 		VerticalLayout::~VerticalLayout() {}
 
@@ -19,6 +19,17 @@ namespace dnc {
 		}
 
 		String VerticalLayout::toHtml() {
+			float childHeight = 100 / subElements.Count();
+
+			for(Div div : subElements.Vector()) {
+				dnc::String str = "height:";
+				str += childHeight;
+				str += "%;";
+				div.Style(str);
+
+				root.AddElement(div);
+			}
+
 			this->AddElement(root);
 
 			return Widget::toHtml();
