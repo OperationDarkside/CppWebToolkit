@@ -139,7 +139,10 @@
       <Filter>Quelldateien\Layout</Filter>
     </ClCompile>
     <ClCompile Include="VerticalLayout.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="GridLayout.cpp">
+      <Filter>Quelldateien\Layout</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -255,7 +258,10 @@
       <Filter>Headerdateien\Layout</Filter>
     </ClInclude>
     <ClInclude Include="VerticalLayout.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="GridLayout.h">
+      <Filter>Headerdateien\Layout</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

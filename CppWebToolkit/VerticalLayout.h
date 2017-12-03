@@ -1,6 +1,5 @@
 #pragma once
 
-
 #ifndef VERTICALLAYOUT_H
 #define VERTICALLAYOUT_H
 
@@ -29,7 +28,7 @@ namespace dnc {
 
 		template<typename T>
 		inline void VerticalLayout::AddWidget(T & component) {
-			static_assert(std::is_base_of<Widget, T>::value, "VerticalLayout::AddWidget - Template does not derive from Widget.");
+			static_assert(std::is_base_of<HtmlElement, T>::value, "VerticalLayout::AddWidget - Template does not derive from HtmlElement.");
 
 			Div childWrapper;
 			childWrapper.AddElement(component);

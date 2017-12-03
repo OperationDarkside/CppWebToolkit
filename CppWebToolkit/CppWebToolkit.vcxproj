@@ -134,6 +134,7 @@
     <ClCompile Include="Div.cpp" />
     <ClCompile Include="FORM.cpp" />
     <ClCompile Include="GET.cpp" />
+    <ClCompile Include="GridLayout.cpp" />
     <ClCompile Include="H1.cpp" />
     <ClCompile Include="Head.cpp" />
     <ClCompile Include="Html.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Div.h" />
     <ClInclude Include="FORM.h" />
     <ClInclude Include="GET.h" />
+    <ClInclude Include="GridLayout.h" />
     <ClInclude Include="H1.h" />
     <ClInclude Include="Head.h" />
     <ClInclude Include="Html.h" />
