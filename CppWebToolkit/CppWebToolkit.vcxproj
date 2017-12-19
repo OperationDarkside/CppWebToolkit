@@ -150,6 +150,7 @@
     <ClCompile Include="POST.cpp" />
     <ClCompile Include="Request.cpp" />
     <ClCompile Include="Response.cpp" />
+    <ClCompile Include="StringBuilder.cpp" />
     <ClCompile Include="SubmitButton.cpp" />
     <ClCompile Include="Table.cpp" />
     <ClCompile Include="Tbody.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="POST.h" />
     <ClInclude Include="Request.h" />
     <ClInclude Include="Response.h" />
+    <ClInclude Include="StringBuilder.h" />
     <ClInclude Include="SubmitButton.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Tbody.h" />

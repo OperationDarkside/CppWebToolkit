@@ -17,6 +17,7 @@ namespace dnc {
 			std::string GetTypeString() override;
 
 			virtual String toHtml() override;
+			virtual void toHtml(StringBuilder& sb) override;
 		};
 
 	}

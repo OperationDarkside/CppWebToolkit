@@ -144,6 +144,9 @@
     <ClCompile Include="GridLayout.cpp">
       <Filter>Quelldateien\Layout</Filter>
     </ClCompile>
+    <ClCompile Include="StringBuilder.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HtmlElement.h">
@@ -262,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="GridLayout.h">
       <Filter>Headerdateien\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuilder.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

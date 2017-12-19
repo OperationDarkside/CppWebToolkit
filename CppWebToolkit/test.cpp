@@ -33,16 +33,16 @@ int main() {
 	dnc::Web::Meta meta;
 	dnc::Web::Body body;
 	//dnc::Web::Paragraph p;
-	//dnc::Web::H1 h1;
+	dnc::Web::H1 h1;
 	dnc::Web::Request req;
 	dnc::Web::GET g;
-	//dnc::Web::Form form;
+	dnc::Web::Form form;
 	dnc::Web::Response resp;
 
 	//putenv("QUERY_STRING=prename=Marvin&lastname=Smith");
 	//putenv("REQUEST_METHOD=GET");
 
-	std::chrono::time_point<std::chrono::system_clock> t1 = std::chrono::system_clock::now();
+	std::chrono::time_point<std::chrono::high_resolution_clock> t_construct = std::chrono::high_resolution_clock::now();
 
 	req.GetEnv();
 	g = req.GetValues();
@@ -65,9 +65,9 @@ int main() {
 	title.SetText(dnc::String("Does this work?"));
 	head.AddElement(title);
 	head.AddElement(meta);
-	/*
+	
 	body.AddElement(h1);
-	body.AddElement(p);
+	//body.AddElement(p);
 
 	{
 		dnc::Web::Paragraph para;
@@ -134,7 +134,7 @@ int main() {
 	vLayout.AddWidget(dnc::Web::TextBox());
 	vLayout.AddWidget(dnc::Web::TextBox());
 	body.AddElement(vLayout);
-	*/
+	
 
 	dnc::Web::GridLayout grid;
 
@@ -177,12 +177,19 @@ int main() {
 	html.AddElement(head);
 	html.AddElement(body);
 
+	std::chrono::time_point<std::chrono::high_resolution_clock> t_render = std::chrono::high_resolution_clock::now();
+
 	resp.Html(html);
 	resp.Send();
 
-	std::chrono::time_point<std::chrono::system_clock> t2 = std::chrono::system_clock::now();
+	std::chrono::time_point<std::chrono::high_resolution_clock> t2 = std::chrono::high_resolution_clock::now();
 
-	std::chrono::microseconds diff = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1);
+	// Construction time
+	std::chrono::microseconds diff = std::chrono::duration_cast<std::chrono::microseconds>(t_render - t_construct);
+	std::cout << std::endl << diff.count() << '\n';
+
+	// Render Time
+	diff = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t_render);
 	std::cout << std::endl << diff.count() << std::endl;
 
 	//system("PAUSE");

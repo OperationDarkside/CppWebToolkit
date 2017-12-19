@@ -17,6 +17,7 @@ namespace dnc {
 			std::string GetTypeString() override;
 
 			virtual String toHtml() override;
+			virtual void toHtml(StringBuilder& sb) override;
 
 			template <typename T>
 			void AddWidget(T& component, unsigned row, unsigned column, int rowSpan, int colSpan);
@@ -66,7 +67,7 @@ namespace dnc {
 
 			childWrapper.Style(dnc::String(style.str()));
 
-			childWrapper.AddElement(component);
+			childWrapper.AddElement(std::move(component));
 
 			subElements.Add(childWrapper);
 		}

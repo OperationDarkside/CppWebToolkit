@@ -23,7 +23,7 @@ namespace dnc {
 
 			for(Div div : subElements.Vector()) {
 				dnc::String str = "height:";
-				str += childHeight;
+				str += std::to_string(childHeight);
 				str += "%;";
 				div.Style(str);
 
@@ -33,6 +33,23 @@ namespace dnc {
 			this->AddElement(root);
 
 			return Widget::toHtml();
+		}
+
+		void VerticalLayout::toHtml(StringBuilder & sb) {
+			float childHeight = 100 / subElements.Count();
+
+			for(Div div : subElements.Vector()) {
+				dnc::String str = "height:";
+				str += std::to_string(childHeight);
+				str += "%;";
+				div.Style(str);
+
+				root.AddElement(div);
+			}
+
+			this->AddElement(root);
+
+			Widget::toHtml(sb);
 		}
 
 	}

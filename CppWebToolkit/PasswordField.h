@@ -20,6 +20,7 @@ namespace dnc {
 			void Text(String& txt);
 
 			virtual String toHtml() override;
+			virtual void toHtml(StringBuilder& sb) override;
 		private:
 			Input in;
 		};

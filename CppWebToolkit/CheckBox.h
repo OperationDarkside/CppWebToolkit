@@ -20,6 +20,7 @@ namespace dnc {
 			void Checked(bool value);
 
 			virtual String toHtml() override;
+			virtual void toHtml(StringBuilder& sb) override;
 		private:
 			Input in;
 		};

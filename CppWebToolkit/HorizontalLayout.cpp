@@ -23,7 +23,7 @@ namespace dnc {
 
 			for(Div div : subElements.Vector()) {
 				dnc::String str = "width:";
-				str += childWidth;
+				str += std::to_string(childWidth);
 				str += "%;";
 				div.Style(str);
 
@@ -33,6 +33,23 @@ namespace dnc {
 			this->AddElement(root);
 
 			return Widget::toHtml();
+		}
+
+		void HorizontalLayout::toHtml(StringBuilder & sb) {
+			float childWidth = 100 / subElements.Count();
+
+			for(Div div : subElements.Vector()) {
+				dnc::String str = "width:";
+				str += std::to_string(childWidth);
+				str += "%;";
+				div.Style(str);
+
+				root.AddElement(div);
+			}
+
+			this->AddElement(root);
+
+			Widget::toHtml(sb);
 		}
 
 	}

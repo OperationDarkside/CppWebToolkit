@@ -44,6 +44,32 @@ namespace dnc {
 			return Widget::toHtml();
 		}
 
+		void GridLayout::toHtml(StringBuilder & sb) {
+			for(Div div : subElements.Vector()) {
+				root.AddElement(div);
+			}
+
+			dnc::String rowTempl = "grid-template-columns: ";
+			for(dnc::String rowT : rowTemplates.Vector()) {
+				rowTempl += rowT;
+				rowTempl += " ";
+			}
+			rowTempl += ";";
+
+			dnc::String colTempl = "grid-template-rows: ";
+			for(dnc::String colT : columnTemplates.Vector()) {
+				colTempl += colT;
+				colTempl += " ";
+			}
+			colTempl += ";";
+
+			root.Style(root.Style() + rowTempl + colTempl);
+
+			this->AddElement(root);
+
+			Widget::toHtml(sb);
+		}
+
 		void GridLayout::AddRowTemplate(dnc::String& templ) {
 			rowTemplates.Add(templ);
 		}

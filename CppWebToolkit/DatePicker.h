@@ -22,6 +22,7 @@ namespace dnc {
 			void Date(DateTime& _dt);
 
 			virtual String toHtml() override;
+			virtual void toHtml(StringBuilder& sb) override;
 		private:
 			DateTime dt;
 			Input in;

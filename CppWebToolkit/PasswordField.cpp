@@ -30,5 +30,10 @@ namespace dnc {
 
 			return Widget::toHtml();
 		}
+		void PasswordField::toHtml(StringBuilder & sb) {
+			this->AddElement(in);
+
+			Widget::toHtml(sb);
+		}
 	}
 }

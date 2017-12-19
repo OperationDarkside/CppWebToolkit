@@ -123,7 +123,7 @@ namespace dnc {
 			// COLS
 			if(cols > 0) {
 				res += " cols=\"";
-				res += cols;
+				res += std::to_string(cols);
 				res += "\"";
 			}
 			// DIRNAME
@@ -145,7 +145,7 @@ namespace dnc {
 			// MAXLENGTH
 			if(maxlength > 0) {
 				res += " maxlength=\"";
-				res += maxlength;
+				res += std::to_string(maxlength);
 				res += "\"";
 			}
 			// NAME
@@ -171,7 +171,7 @@ namespace dnc {
 			// ROWS
 			if(rows > 0) {
 				res += " rows=\"";
-				res += rows;
+				res += std::to_string(rows);
 				res += "\"";
 			}
 			// WRAP

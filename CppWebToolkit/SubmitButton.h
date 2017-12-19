@@ -21,6 +21,7 @@ namespace dnc {
 			void Caption(String& _caption);
 
 			virtual String toHtml() override;
+			virtual void toHtml(StringBuilder& sb) override;
 		private:
 			Input in;
 		};

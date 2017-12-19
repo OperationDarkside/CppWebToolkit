@@ -37,5 +37,13 @@ namespace dnc {
 			return Widget::toHtml();
 		}
 
+		void DatePicker::toHtml(StringBuilder & sb) {
+			String str(Convert::toString(dt.Year()).PadLeft(4, '0') + "-" + Convert::toString(dt.Month()).PadLeft(2, '0') + "-" + Convert::toString(dt.Day()).PadLeft(2, '0'));
+			in.Value(str);
+			this->AddElement(in);
+
+			Widget::toHtml(sb);
+		}
+
 	}
 }

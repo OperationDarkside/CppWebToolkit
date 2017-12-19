@@ -36,5 +36,11 @@ namespace dnc {
 			return Widget::toHtml();
 		}
 
+		void SubmitButton::toHtml(StringBuilder & sb) {
+			this->AddElement(in);
+
+			Widget::toHtml(sb);
+		}
+
 	}
 }

@@ -3,14 +3,15 @@
 #ifndef HTMLELEMENT_H
 #define HTMLELEMENT_H
 
+#include "StringBuilder.h"
 #include "HtmlAttribute.h"
 #include "HtmlDataAttribute.h"
 #include <memory>
 //#include "List.h"
 
-namespace dnc{
-	namespace Web{
-		class HtmlElement: public Object{
+namespace dnc {
+	namespace Web {
+		class HtmlElement : public Object {
 		public:
 			HtmlElement();
 			//HtmlElement(const HtmlElement& ele);
@@ -25,12 +26,17 @@ namespace dnc{
 			template <typename T>
 			void AddElement(T& element);
 
+			template <typename T, typename... Args>
+			T& AddElement(Args&&... args);
+
 			/**
 			Returns the Html String of this instance including its children
 
 			@param element HtmlElement to add
 			*/
 			virtual String toHtml();
+
+			virtual void toHtml(StringBuilder& sb);
 
 			// AccessKey
 			String& AccessKey();
@@ -129,13 +135,23 @@ namespace dnc{
 		template <typename T>
 		void HtmlElement::AddElement(T& element) {
 			static_assert(std::is_base_of<HtmlElement, T>::value, "HtmlElement::AddElement - Template does not derive from HtmlElement.");
-			HtmlElement* ele = static_cast<HtmlElement*>(&element);
+			//HtmlElement* ele = static_cast<HtmlElement*>(&element);
 
-			if(ele != nullptr) {
-				this->children.Add(std::make_shared<T>(element));
-			} else {
-				throw "Not a HtmlElement!";
-			}
+			//if(ele != nullptr) {
+			//std::unique_ptr<T> ptr(element);
+			this->children.Add(std::make_shared<T>(element));
+			//} else {
+			//	throw "Not a HtmlElement!";
+			//}
+		}
+
+		template<typename T, typename... Args>
+		inline T & HtmlElement::AddElement(Args&&... args) {
+			static_assert(std::is_base_of<HtmlElement, T>::value, "HtmlElement::AddElement - Template does not derive from HtmlElement.");
+
+			children.Add(std::make_shared<T>(std::forward<Args>(args)...));
+
+			return *ptr;
 		}
 	}
 }

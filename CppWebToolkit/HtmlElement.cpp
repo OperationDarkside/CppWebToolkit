@@ -7,8 +7,6 @@ namespace dnc{
 
 		HtmlElement::HtmlElement(){}
 
-		//HtmlElement::HtmlElement(const HtmlElement & ele) {}
-
 		//HtmlElement::HtmlElement(HtmlElement && ele) {}
 
 		HtmlElement::~HtmlElement(){}
@@ -50,13 +48,37 @@ namespace dnc{
 
 				str += ele->toHtml();
 
-				Meta* mt = dynamic_cast<Meta*>(ele);
-				int intel = 0;
+				//Meta* mt = dynamic_cast<Meta*>(ele);
+				//int intel = 0;
 			}
 			
 			str += this->html_part2;
 
 			return str;
+		}
+
+		void HtmlElement::toHtml(StringBuilder & sb) {
+			size_t len_SubElements = 0;
+			String strAttr;
+
+			// Add HtmlAttributes
+			strAttr = this->getAttributeString();
+			this->html_part1.Insert(this->html_part1.Length() - 1, &strAttr);
+
+			// Add Sub-HtmlElements
+			sb += this->html_part1.GetStringValue();
+
+			// Add inner text
+			sb += this->innerText.GetStringValue();
+
+			len_SubElements = this->children.Count();
+			for(size_t i = 0; i < len_SubElements; i++) {
+				HtmlElement* ele = this->children[i].get();
+
+				ele->toHtml(sb);
+			}
+
+			sb += this->html_part2.GetStringValue();
 		}
 
 		String & HtmlElement::AccessKey(){

@@ -32,5 +32,11 @@ namespace dnc {
 			return Widget::toHtml();
 		}
 
+		void CheckBox::toHtml(StringBuilder & sb) {
+			this->AddElement(in);
+
+			Widget::toHtml(sb);
+		}
+
 	}
 }

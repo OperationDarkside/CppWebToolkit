@@ -30,5 +30,17 @@ namespace dnc {
 			return str;
 		}
 
+		void Widget::toHtml(StringBuilder & sb) {
+			size_t len_SubElements = 0;
+			String str;
+
+			len_SubElements = this->children.Count();
+			for(size_t i = 0; i < len_SubElements; i++) {
+				HtmlElement* ele = this->children[i].get();
+
+				ele->toHtml(sb);
+			}
+		}
+
 	}
 }

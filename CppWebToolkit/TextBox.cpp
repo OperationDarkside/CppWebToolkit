@@ -30,5 +30,11 @@ namespace dnc {
 			return Widget::toHtml();
 		}
 
+		void TextBox::toHtml(StringBuilder & sb) {
+			this->AddElement(in);
+
+			Widget::toHtml(sb);
+		}
+
 	}
 }

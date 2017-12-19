@@ -22,8 +22,12 @@ namespace dnc{
 
 
 		void Response::Send(){
+			StringBuilder sb;
+
+			this->html.toHtml(sb);
+
 			std::cout << "Content-type:text/html\r\n\r\n";
-			std::cout << this->html.toHtml().GetStringValue();
+			std::cout << sb.ToString() << std::endl;
 		}
 	}
 }
