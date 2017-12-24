@@ -21,12 +21,19 @@
 #include "HorizontalLayout.h"
 #include "VerticalLayout.h"
 #include "GridLayout.h"
+#include "WebApplication.h"
+#include "MyFirstPage.h"
 
 //using namespace dnc;
 //using namespace dnc::Web;
 
 
 int main() {
+
+	dnc::Web::WebApplication app;
+	app.registerPage<dnc::Web::MyFirstPage>(dnc::String("/"));
+	app.Start();
+
 	dnc::Web::Html html;
 	dnc::Web::Head head;
 	dnc::Web::Title title;

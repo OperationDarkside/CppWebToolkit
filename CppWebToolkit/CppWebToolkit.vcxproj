@@ -145,6 +145,9 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Li.cpp" />
     <ClCompile Include="Meta.cpp" />
+    <ClCompile Include="MyFirstPage.cpp" />
+    <ClCompile Include="PageHolder.cpp" />
+    <ClCompile Include="PageHolderBase.cpp" />
     <ClCompile Include="Paragraph.cpp" />
     <ClCompile Include="PasswordField.cpp" />
     <ClCompile Include="POST.cpp" />
@@ -166,6 +169,8 @@
     <ClCompile Include="Ul.cpp" />
     <ClCompile Include="HorizontalLayout.cpp" />
     <ClCompile Include="VerticalLayout.cpp" />
+    <ClCompile Include="WebApplication.cpp" />
+    <ClCompile Include="WebPage.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +193,9 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Li.h" />
     <ClInclude Include="Meta.h" />
+    <ClInclude Include="MyFirstPage.h" />
+    <ClInclude Include="PageHolder.h" />
+    <ClInclude Include="PageHolderBase.h" />
     <ClInclude Include="Paragraph.h" />
     <ClInclude Include="PasswordField.h" />
     <ClInclude Include="POST.h" />
@@ -208,6 +216,8 @@
     <ClInclude Include="Ul.h" />
     <ClInclude Include="HorizontalLayout.h" />
     <ClInclude Include="VerticalLayout.h" />
+    <ClInclude Include="WebApplication.h" />
+    <ClInclude Include="WebPage.h" />
     <ClInclude Include="Widget.h" />
   </ItemGroup>
   <ItemGroup>
