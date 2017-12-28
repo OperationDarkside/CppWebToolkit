@@ -5,6 +5,7 @@
 #include "PageHolder.h"
 #include "WebPage.h"
 #include "DNC\String.h"
+#include "DNC\Socket.h"
 
 #include <vector>
 #include <unordered_map>
@@ -34,6 +35,8 @@ namespace dnc {
 		private:
 			// std::vector<std::unique_ptr<PageHolderBase>> pages;
 			std::unordered_map<std::string, std::unique_ptr<PageHolderBase>> pages;
+
+			void HandleReads(std::vector<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*> readSockets);
 		};
 	}
 }
