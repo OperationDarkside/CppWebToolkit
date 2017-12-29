@@ -162,6 +162,9 @@
     <ClCompile Include="MyFirstPage.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="HttpHeader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HtmlElement.h">
@@ -297,6 +300,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="MyFirstPage.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpHeader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

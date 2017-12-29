@@ -1,5 +1,6 @@
 #include "WebApplication.h"
 #include "DNC\Console.h"
+#include "HttpHeader.h"
 #include <chrono>
 #include <thread>
 #include <algorithm>
@@ -53,6 +54,7 @@ namespace dnc {
 					{
 						int error = WSAGetLastError();
 						Console::WriteLine(error);
+						break;
 					}
 					break;
 					default: // SUCCESS
@@ -60,11 +62,14 @@ namespace dnc {
 							// New incoming client
 							Net::Sockets::Socket accSock = listenSock.Accept();
 							clientSockets.push_back(accSock);
-
+							/*
 							if(readSockets.size() > 1) {
+								// remove listening socket
+								readSockets.erase(std::remove(readSockets.begin(), readSockets.end(), &listenSock), readSockets.end());
 								// Something to read
 								HandleReads(clientSockets, readSockets);
 							}
+							*/
 						} else {
 							// Something to read
 							HandleReads(clientSockets, readSockets);
@@ -146,6 +151,8 @@ namespace dnc {
 		}
 
 		void WebApplication::HandleReads(std::vector<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*> readSockets) {
+			std::vector<Net::Sockets::Socket*> eraseSockets;
+
 			for(Net::Sockets::Socket* s : readSockets) {
 				String request;
 				while(true) {
@@ -157,7 +164,10 @@ namespace dnc {
 						switch(bytesrecvd) {
 							case 0:
 								Console::WriteLine("Active Client Disconnect");
-								clientSockets.erase(std::remove(clientSockets.begin(), clientSockets.end(), *s), clientSockets.end());
+								// ERASE AFTER DISCONNECT
+								eraseSockets.push_back(s);
+								//clientSockets.erase(std::remove(clientSockets.begin(), clientSockets.end(), *s), clientSockets.end());
+								//readSockets.erase(std::remove(readSockets.begin(), readSockets.end(), s), readSockets.end());
 								break;
 							case SOCKET_ERROR:
 								Console::WriteLine("SOCKET_ERROR in Receive");
@@ -184,14 +194,22 @@ namespace dnc {
 				Console::WriteLine(request);
 				Console::WriteLine();
 
+				// HTTP Header class test
+				HttpHeader header;
+				header.Parse(request);
+
+				/*
 				String firstLine = request.Substring(0, request.IndexOf('\n'));
 				dnc::Collections::Generic::List<String> firstLineValues = firstLine.Split(' ');
 				String path = firstLineValues[1];
+				*/
 
-				auto& page = pages.find(path.GetStringValue());
+				auto& page = pages.find(header.Path().GetStringValue());
 				if(page == pages.end()) {
 					s->Send("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
 					s->Disconnect();
+					eraseSockets.push_back(s);
+					// ERASE AFTER DISCONNECT
 					Console::WriteLine("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
 					continue;
 				}
@@ -205,8 +223,14 @@ namespace dnc {
 
 				s->Send(response.GetStringValue().c_str());
 				s->Disconnect();
-
+				// ERASE AFTER DISCONNECT
+				eraseSockets.push_back(s);
+				//clientSockets.erase(std::remove(clientSockets.begin(), clientSockets.end(), *s), clientSockets.end());
+				//readSockets.erase(std::remove(readSockets.begin(), readSockets.end(), s), readSockets.end());
+			}
+			for(Net::Sockets::Socket* s : eraseSockets) {
 				clientSockets.erase(std::remove(clientSockets.begin(), clientSockets.end(), *s), clientSockets.end());
+				readSockets.erase(std::remove(readSockets.begin(), readSockets.end(), s), readSockets.end());
 			}
 		}
 

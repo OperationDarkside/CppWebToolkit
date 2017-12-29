@@ -142,6 +142,7 @@
     <ClCompile Include="HtmlDataAttribute.cpp" />
     <ClCompile Include="HtmlDataTable.cpp" />
     <ClCompile Include="HtmlElement.cpp" />
+    <ClCompile Include="HttpHeader.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Li.cpp" />
     <ClCompile Include="Meta.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="HtmlDataAttribute.h" />
     <ClInclude Include="HtmlDataTable.h" />
     <ClInclude Include="HtmlElement.h" />
+    <ClInclude Include="HttpHeader.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Li.h" />
     <ClInclude Include="Meta.h" />
