@@ -3,6 +3,7 @@
 #define WEBPAGE_H
 
 #include "DNC\String.h"
+#include "HttpHeader.h"
 
 namespace dnc {
 	namespace Web {
@@ -14,7 +15,7 @@ namespace dnc {
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			virtual String HandleRequest(String& request) = 0;
+			virtual String HandleRequest(HttpHeader& request) = 0;
 		};
 	}
 }

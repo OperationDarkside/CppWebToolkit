@@ -165,6 +165,8 @@
     <ClCompile Include="Tfoot.cpp" />
     <ClCompile Include="Th.cpp" />
     <ClCompile Include="Thead.cpp" />
+    <ClCompile Include="ThreadPool.cpp" />
+    <ClCompile Include="BlockingQueue.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Tr.cpp" />
     <ClCompile Include="Ul.cpp" />
@@ -213,6 +215,8 @@
     <ClInclude Include="Tfoot.h" />
     <ClInclude Include="Th.h" />
     <ClInclude Include="Thead.h" />
+    <ClInclude Include="ThreadPool.h" />
+    <ClInclude Include="BlockingQueue.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="Tr.h" />
     <ClInclude Include="Ul.h" />

@@ -3,6 +3,8 @@
 #define PAGEHOLDERBASE_H
 
 #include "DNC\String.h"
+#include "DNC\Socket.h"
+#include "HttpHeader.h"
 
 namespace dnc {
 	namespace Web {
@@ -14,7 +16,7 @@ namespace dnc {
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			virtual String getResponse(String& request) = 0;
+			virtual void GetResponse(HttpHeader&& request) = 0;
 		};
 	}
 }

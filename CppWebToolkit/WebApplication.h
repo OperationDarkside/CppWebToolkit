@@ -8,6 +8,7 @@
 #include "DNC\Socket.h"
 
 #include <vector>
+#include <list>
 #include <unordered_map>
 #include <memory>
 #include <utility>
@@ -23,7 +24,7 @@ namespace dnc {
 			std::string GetTypeString() override;
 
 			template<typename T, typename = std::enable_if_t<std::is_base_of<WebPage, T>::value, T>>
-			void registerPage(String name) {
+			void registerPage(String& name) {
 
 				std::unique_ptr<PageHolder<T>> ptr = std::make_unique<PageHolder<T>>();
 
@@ -33,10 +34,9 @@ namespace dnc {
 			void Start();
 
 		private:
-			// std::vector<std::unique_ptr<PageHolderBase>> pages;
 			std::unordered_map<std::string, std::unique_ptr<PageHolderBase>> pages;
 
-			void HandleReads(std::vector<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*> readSockets);
+			void HandleReads(std::list<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*>& readSockets);
 		};
 	}
 }

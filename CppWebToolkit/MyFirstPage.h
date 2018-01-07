@@ -11,7 +11,7 @@ namespace dnc {
 			MyFirstPage();
 			~MyFirstPage();
 
-			String HandleRequest(String& request) override;
+			String HandleRequest(HttpHeader& request) override;
 		};
 	}
 }

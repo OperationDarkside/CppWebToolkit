@@ -8,7 +8,7 @@ namespace dnc {
 
 		MyFirstPage::~MyFirstPage() {}
 
-		String MyFirstPage::HandleRequest(String & request) {
+		String MyFirstPage::HandleRequest(HttpHeader & request) {
 			return String(R"(<!DOCTYPE html>
 						  <html>
 						  <body>

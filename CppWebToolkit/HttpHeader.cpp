@@ -102,6 +102,14 @@ namespace dnc {
 			return http_version;
 		}
 
+		Net::Sockets::Socket& HttpHeader::Socket() {
+			return sock;
+		}
+
+		void HttpHeader::Socket(Net::Sockets::Socket socket) {
+			sock = std::move(socket);
+		}
+
 		String HttpHeader::Field(String & fieldname) {
 			return String(fields.at(fieldname.GetStringValue()));
 		}

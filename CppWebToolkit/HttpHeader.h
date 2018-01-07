@@ -4,6 +4,7 @@
 #define HTTPHEADER_H
 
 #include "DNC\String.h"
+#include "DNC\Socket.h"
 #include <unordered_map>
 
 namespace dnc {
@@ -20,12 +21,16 @@ namespace dnc {
 			String& Path();
 			String& HttpVersion();
 
+			Net::Sockets::Socket& Socket();
+			void Socket(Net::Sockets::Socket socket);
+
 		private:
 			String method;
 			String path;
 			String http_version;
 			std::unordered_map<std::string, std::string> fields;
 
+			Net::Sockets::Socket sock;
 		};
 	}
 }
