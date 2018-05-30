@@ -4,7 +4,8 @@
 
 #include "DNC\String.h"
 #include "DNC\Socket.h"
-#include "HttpHeader.h"
+#include "HttpRequest.h"
+#include "HttpResponse.h"
 
 namespace dnc {
 	namespace Web {
@@ -16,7 +17,7 @@ namespace dnc {
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			virtual void GetResponse(HttpHeader&& request) = 0;
+			virtual void GetResponse(HttpRequest&& request) = 0;
 		};
 	}
 }

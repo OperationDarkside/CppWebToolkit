@@ -8,8 +8,11 @@ namespace dnc {
 
 		MyFirstPage::~MyFirstPage() {}
 
-		String MyFirstPage::HandleRequest(HttpHeader & request) {
-			return String(R"(<!DOCTYPE html>
+		HttpResponse MyFirstPage::HandleRequest(HttpRequest & request) {
+			HttpResponse resp;
+
+			resp.ResponseCode (RESPONSE_CODE::OK_200);
+			resp.Body (R"(<!DOCTYPE html>
 						  <html>
 						  <body>
 
@@ -19,6 +22,8 @@ namespace dnc {
 
 						  </body>
 						  </html>)");
+
+			return resp;
 		}
 
 	}

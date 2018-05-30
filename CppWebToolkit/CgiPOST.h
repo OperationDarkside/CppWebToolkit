@@ -8,10 +8,10 @@
 
 namespace dnc{
 	namespace Web{
-		class POST : public Object{
+		class CgiPOST : public Object{
 		public:
-			POST();
-			~POST();
+			CgiPOST ();
+			~CgiPOST ();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;

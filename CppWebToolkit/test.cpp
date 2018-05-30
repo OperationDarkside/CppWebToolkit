@@ -42,7 +42,7 @@ int main() {
 	//dnc::Web::Paragraph p;
 	dnc::Web::H1 h1;
 	dnc::Web::Request req;
-	dnc::Web::GET g;
+	//dnc::Web::GET g;
 	dnc::Web::Form form;
 	dnc::Web::Response resp;
 
@@ -52,14 +52,14 @@ int main() {
 	std::chrono::time_point<std::chrono::high_resolution_clock> t_construct = std::chrono::high_resolution_clock::now();
 
 	req.GetEnv();
-	g = req.GetValues();
+	//g = req.GetValues();
 
 	//h1.InnerText(u8"ÜBASCHRIFD");
 
 	bool isPrename = false, isLastName = false;
 
-	isPrename = g.isset("prename");
-	isLastName = g.isset("lastname");
+	//isPrename = g.isset("prename");
+	//isLastName = g.isset("lastname");
 
 	/*if(isPrename && isLastName){
 		p.InnerText("Hallo " + g["prename"] + g["lastname"]);

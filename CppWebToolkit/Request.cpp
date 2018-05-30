@@ -103,7 +103,7 @@ namespace dnc{
 
 
 		}
-
+		/*
 		GET Request::GetValues(){
 			GET g;
 
@@ -119,7 +119,7 @@ namespace dnc{
 
 			return p;
 		}
-
+		*/
 		std::string Request::UriDecode(const std::string & sSrc){
 			// Note from RFC1630: "Sequences which start with a percent
 			// sign but are not followed by two hexadecimal characters

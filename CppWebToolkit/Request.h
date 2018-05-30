@@ -3,8 +3,9 @@
 #ifndef REQUEST_H
 #define REQUEST_H
 
-#include "GET.h"
-#include "POST.h"
+//#include "GET.h"
+//#include "POST.h"
+#include "DNC/String.h"
 #include "DNC/List.h"
 #include <map>
 
@@ -20,8 +21,8 @@ namespace dnc{
 
 			void GetEnv();
 
-			GET GetValues();
-			POST PostValues();
+			//GET GetValues();
+			//POST PostValues();
 
 		private:
 			std::string UriDecode(const std::string& sSrc);

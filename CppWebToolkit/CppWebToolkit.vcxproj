@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -21,32 +21,32 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7E65CF28-422E-42F5-BAF1-DAA2782CF4A9}</ProjectGuid>
     <RootNamespace>CppWebToolkit</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -133,7 +133,7 @@
     <ClCompile Include="DatePicker.cpp" />
     <ClCompile Include="Div.cpp" />
     <ClCompile Include="FORM.cpp" />
-    <ClCompile Include="GET.cpp" />
+    <ClCompile Include="CgiGET.cpp" />
     <ClCompile Include="GridLayout.cpp" />
     <ClCompile Include="H1.cpp" />
     <ClCompile Include="Head.cpp" />
@@ -142,7 +142,11 @@
     <ClCompile Include="HtmlDataAttribute.cpp" />
     <ClCompile Include="HtmlDataTable.cpp" />
     <ClCompile Include="HtmlElement.cpp" />
+    <ClCompile Include="HttpGet.cpp" />
     <ClCompile Include="HttpHeader.cpp" />
+    <ClCompile Include="HttpPost.cpp" />
+    <ClCompile Include="HttpRequest.cpp" />
+    <ClCompile Include="HttpResponse.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Li.cpp" />
     <ClCompile Include="Meta.cpp" />
@@ -151,7 +155,7 @@
     <ClCompile Include="PageHolderBase.cpp" />
     <ClCompile Include="Paragraph.cpp" />
     <ClCompile Include="PasswordField.cpp" />
-    <ClCompile Include="POST.cpp" />
+    <ClCompile Include="CgiPOST.cpp" />
     <ClCompile Include="Request.cpp" />
     <ClCompile Include="Response.cpp" />
     <ClCompile Include="StringBuilder.cpp" />
@@ -184,7 +188,7 @@
     <ClInclude Include="DatePicker.h" />
     <ClInclude Include="Div.h" />
     <ClInclude Include="FORM.h" />
-    <ClInclude Include="GET.h" />
+    <ClInclude Include="CgiGET.h" />
     <ClInclude Include="GridLayout.h" />
     <ClInclude Include="H1.h" />
     <ClInclude Include="Head.h" />
@@ -193,7 +197,11 @@
     <ClInclude Include="HtmlDataAttribute.h" />
     <ClInclude Include="HtmlDataTable.h" />
     <ClInclude Include="HtmlElement.h" />
+    <ClInclude Include="HttpGet.h" />
     <ClInclude Include="HttpHeader.h" />
+    <ClInclude Include="HttpPost.h" />
+    <ClInclude Include="HttpRequest.h" />
+    <ClInclude Include="HttpResponse.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Li.h" />
     <ClInclude Include="Meta.h" />
@@ -202,7 +210,7 @@
     <ClInclude Include="PageHolderBase.h" />
     <ClInclude Include="Paragraph.h" />
     <ClInclude Include="PasswordField.h" />
-    <ClInclude Include="POST.h" />
+    <ClInclude Include="CgiPOST.h" />
     <ClInclude Include="Request.h" />
     <ClInclude Include="Response.h" />
     <ClInclude Include="StringBuilder.h" />

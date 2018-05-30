@@ -4,27 +4,28 @@
 #include <chrono>
 #include <thread>
 #include <algorithm>
+#include <exception>
 
 namespace dnc {
 	namespace Web {
 
-		WebApplication::WebApplication() {}
+		WebApplication::WebApplication () {}
 
 
-		WebApplication::~WebApplication() {}
+		WebApplication::~WebApplication () {}
 
-		std::string WebApplication::ToString() {
-			return std::string("System.Web.WebApplication");
+		std::string WebApplication::ToString () {
+			return std::string ("System.Web.WebApplication");
 		}
 
-		std::string WebApplication::GetTypeString() {
-			return std::string("WebApplication");
+		std::string WebApplication::GetTypeString () {
+			return std::string ("WebApplication");
 		}
 
-		void WebApplication::Start() {
+		void WebApplication::Start () {
 			bool is_running = true;
 			int select_ret_val = 0;
-			Net::Sockets::Socket listenSock(Net::AddressFamily::IPv4, Net::Sockets::SocketType::Stream, Net::Sockets::ProtocolType::Tcp);
+			Net::Sockets::Socket listenSock (Net::AddressFamily::IPv4, Net::Sockets::SocketType::Stream, Net::Sockets::ProtocolType::Tcp);
 			//std::vector<unsigned char> addr;
 			std::list<Net::Sockets::Socket> clientSockets;
 			std::vector<Net::Sockets::Socket*> readSockets;
@@ -37,8 +38,8 @@ namespace dnc {
 			addr.push_back(0);
 			addr.push_back(1);
 			*/
-			listenSock.Bind(Net::IPEndPoint(Net::IPAddress({ 127,0,0,1 }), 999));
-			listenSock.Listen(10);
+			listenSock.Bind (Net::IPEndPoint (Net::IPAddress ({127,0,0,1}), 999));
+			listenSock.Listen (10);
 
 			while (is_running) {
 				/*for (Net::Sockets::Socket& s : clientSockets) {
@@ -52,28 +53,28 @@ namespace dnc {
 				}
 				removeSockets.clear();*/
 
-				readSockets.push_back(&listenSock);
+				readSockets.push_back (&listenSock);
 				for (Net::Sockets::Socket& s : clientSockets) {
-					readSockets.push_back(&s);
+					readSockets.push_back (&s);
 				}
 
-				select_ret_val = Net::Sockets::Socket::Select(readSockets, writeSockets, errorSockets, 0, 0);
+				select_ret_val = Net::Sockets::Socket::Select (readSockets, writeSockets, errorSockets, 0, 0);
 
 				switch (select_ret_val) {
 				case 0: // Time limit expired
 					break;
 				case SOCKET_ERROR:
 				{
-					int error = WSAGetLastError();
-					Console::WriteLine(error);
+					int error = WSAGetLastError ();
+					Console::WriteLine (error);
 					break;
 				}
 				break;
 				default: // SUCCESS
-					if (std::find(readSockets.begin(), readSockets.end(), &listenSock) != readSockets.end()) {
+					if (std::find (readSockets.begin (), readSockets.end (), &listenSock) != readSockets.end ()) {
 						// New incoming client
-						Net::Sockets::Socket accSock = listenSock.Accept();
-						clientSockets.push_back(accSock);
+						Net::Sockets::Socket accSock = listenSock.Accept ();
+						clientSockets.push_back (accSock);
 						/*
 						if(readSockets.size() > 1) {
 							// remove listening socket
@@ -82,14 +83,18 @@ namespace dnc {
 							HandleReads(clientSockets, readSockets);
 						}
 						*/
-					}
-					else {
+					} else {
 						// Something to read
-						HandleReads(clientSockets, readSockets);
+						try {
+							HandleReads (clientSockets, readSockets);
+						} catch (std::exception& ex) {
+							const char * msg = ex.what ();
+							Console::WriteLine (msg);
+						}
 					}
 					break;
 				}
-				readSockets.clear();
+				readSockets.clear ();
 			}
 			/*
 			while(true) {
@@ -163,25 +168,25 @@ namespace dnc {
 			*/
 		}
 
-		void WebApplication::HandleReads(std::list<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*>& readSockets) {
+		void WebApplication::HandleReads (std::list<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*>& readSockets) {
 			std::vector<Net::Sockets::Socket*> eraseSockets;
 
 			for (Net::Sockets::Socket* s : readSockets) {
-				String request;
+				String request_str;
 				while (true) {
 					std::array<char, 100> recvBuffer;
 
-					int bytesrecvd = s->Receive(recvBuffer);
+					int bytesrecvd = s->Receive (recvBuffer);
 
 					if (bytesrecvd < 1) {
 						switch (bytesrecvd) {
 						case 0:
-							Console::WriteLine("Active Client Disconnect");
+							Console::WriteLine ("Active Client Disconnect");
 							// ERASE AFTER DISCONNECT
-							eraseSockets.push_back(s);
+							eraseSockets.push_back (s);
 							break;
 						case SOCKET_ERROR:
-							Console::WriteLine("SOCKET_ERROR in Receive");
+							Console::WriteLine ("SOCKET_ERROR in Receive");
 							break;
 						}
 						break;
@@ -189,36 +194,36 @@ namespace dnc {
 
 					String recvBufferStr = recvBuffer;
 
-					request += recvBufferStr;
+					request_str += recvBufferStr;
 
 					if (bytesrecvd != 100) {
 						break;
 					}
 				}
 
-				if (request[0] == 0) {
-					Console::WriteLine("Nothing received");
+				if (request_str[0] == 0) {
+					Console::WriteLine ("Nothing received");
 					continue;
 				}
 
 				// Parse HTTP Header
-				HttpHeader header;
-				header.Parse(request);
-				header.Socket(*s);
+				HttpRequest request;
+				request.Parse (request_str.GetStringValue ());
+				request.Socket (*s);
 
-				auto& page = pages.find(header.Path().GetStringValue());
-				if (page == pages.end()) {
-					s->Send("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
-					s->Disconnect();
-					eraseSockets.push_back(s);
+				auto& page = pages.find (request.Resource ());
+				if (page == pages.end ()) {
+					s->Send ("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
+					s->Disconnect ();
+					eraseSockets.push_back (s);
 					// ERASE AFTER DISCONNECT
-					Console::WriteLine("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
+					Console::WriteLine ("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
 					continue;
 				}
 
-				PageHolderBase* holder = page->second.get();
+				PageHolderBase* holder = page->second.get ();
 
-				holder->GetResponse(std::move(header));
+				holder->GetResponse (std::move (request));
 				//response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
 
 				//Console::WriteLine(response);
@@ -226,10 +231,10 @@ namespace dnc {
 				//s->Send(response.GetStringValue().c_str());
 				//s->Disconnect();
 				// ERASE AFTER DISCONNECT
-				eraseSockets.push_back(s);
+				eraseSockets.push_back (s);
 			}
 			for (Net::Sockets::Socket* s : eraseSockets) {
-				clientSockets.erase(std::remove(clientSockets.begin(), clientSockets.end(), *s), clientSockets.end());
+				clientSockets.erase (std::remove (clientSockets.begin (), clientSockets.end (), *s), clientSockets.end ());
 				//readSockets.erase(std::remove(readSockets.begin(), readSockets.end(), s), readSockets.end());
 			}
 		}

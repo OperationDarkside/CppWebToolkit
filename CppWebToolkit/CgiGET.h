@@ -10,13 +10,13 @@
 namespace dnc{
 	namespace Web{
 
-		class GET: public Object{
+		class CgiGET: public Object{
 
 			friend class Request;
 
 		public:
-			GET();
-			~GET();
+			CgiGET ();
+			~CgiGET ();
 
 			std::string ToString() override;
 			std::string GetTypeString() override;

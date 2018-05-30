@@ -25,6 +25,18 @@
     <Filter Include="Quelldateien\Layout">
       <UniqueIdentifier>{c4461ab8-ff3b-43cd-b5ed-5481302d262d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Element">
+      <UniqueIdentifier>{92a463e4-5d1e-4b3a-85e3-de00a03ebc9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Element">
+      <UniqueIdentifier>{a3212cf9-adcb-4abf-bfe7-8fc6b03afb70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\WebServer">
+      <UniqueIdentifier>{64f32e54-69fd-40a9-9327-9b3c2a7fcf96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\WebServer">
+      <UniqueIdentifier>{4c574655-f5a8-4a03-8aef-c033163f777d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -33,28 +45,7 @@
     <ClCompile Include="HtmlElement.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Html.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Body.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Paragraph.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="H1.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="GET.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Request.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="POST.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="FORM.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="HtmlAttribute.cpp">
@@ -63,52 +54,7 @@
     <ClCompile Include="HtmlDataAttribute.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Head.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Response.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Title.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Meta.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="A.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Ul.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Li.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Div.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Table.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Thead.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Tbody.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Tfoot.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Tr.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Td.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Th.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="HtmlDataTable.cpp">
@@ -116,9 +62,6 @@
     </ClCompile>
     <ClCompile Include="Widget.cpp">
       <Filter>Quelldateien\Widget</Filter>
-    </ClCompile>
-    <ClCompile Include="TextArea.cpp">
-      <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="PasswordField.cpp">
       <Filter>Quelldateien\Widget</Filter>
@@ -147,28 +90,109 @@
     <ClCompile Include="StringBuilder.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="WebApplication.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="A.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Div.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="FORM.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="H1.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Head.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Html.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Li.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Meta.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Paragraph.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Table.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Tbody.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Td.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="TextArea.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Tfoot.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Th.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Thead.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Tr.cpp">
+      <Filter>Quelldateien\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Ul.cpp">
+      <Filter>Quelldateien\Element</Filter>
     </ClCompile>
     <ClCompile Include="WebPage.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\WebServer</Filter>
     </ClCompile>
-    <ClCompile Include="PageHolder.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="PageHolderBase.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="MyFirstPage.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="HttpHeader.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="WebApplication.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
     </ClCompile>
     <ClCompile Include="ThreadPool.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="PageHolderBase.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="PageHolder.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="MyFirstPage.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpHeader.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
     </ClCompile>
     <ClCompile Include="BlockingQueue.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpRequest.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CgiGET.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CgiPOST.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpGet.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpPost.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpResponse.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,28 +200,7 @@
     <ClInclude Include="HtmlElement.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Html.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Body.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Paragraph.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="H1.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="GET.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Request.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="POST.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="FORM.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="HtmlAttribute.h">
@@ -206,55 +209,7 @@
     <ClInclude Include="HtmlDataAttribute.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Head.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Response.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Title.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Meta.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="CharSets.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="A.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Ul.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Li.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Div.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Table.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Thead.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Tbody.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Tfoot.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Tr.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Td.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Th.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="HtmlDataTable.h">
@@ -262,9 +217,6 @@
     </ClInclude>
     <ClInclude Include="Widget.h">
       <Filter>Headerdateien\Widget</Filter>
-    </ClInclude>
-    <ClInclude Include="TextArea.h">
-      <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="PasswordField.h">
       <Filter>Headerdateien\Widget</Filter>
@@ -293,28 +245,112 @@
     <ClInclude Include="StringBuilder.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="WebApplication.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="A.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Body.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Div.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="FORM.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="H1.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Head.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Html.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Li.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Meta.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Paragraph.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Tbody.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Td.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="TextArea.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Tfoot.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Th.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Thead.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Tr.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Ul.h">
+      <Filter>Headerdateien\Element</Filter>
     </ClInclude>
     <ClInclude Include="WebPage.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\WebServer</Filter>
     </ClInclude>
-    <ClInclude Include="PageHolder.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="PageHolderBase.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="MyFirstPage.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpHeader.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="WebApplication.h">
+      <Filter>Headerdateien\WebServer</Filter>
     </ClInclude>
     <ClInclude Include="ThreadPool.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="MyFirstPage.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="PageHolder.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="PageHolderBase.h">
+      <Filter>Headerdateien\WebServer</Filter>
     </ClInclude>
     <ClInclude Include="BlockingQueue.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpHeader.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="CharSets.h">
+      <Filter>Headerdateien\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpRequest.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CgiGET.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CgiPOST.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpGet.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpPost.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpResponse.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,61 +3,61 @@
 namespace dnc {
 	namespace Web {
 
-		HttpHeader::HttpHeader() {}
+		HttpHeader::HttpHeader () {}
 
 
-		HttpHeader::~HttpHeader() {}
+		HttpHeader::~HttpHeader () {}
 
-		void HttpHeader::Parse(String & str) {
-			std::string s = str.GetStringValue();
+		void HttpHeader::Parse (String & str) {
+			std::string s = str.GetStringValue ();
 
 			bool isFirstLine = true;
 			bool isKey = true;
 			bool isFirstColon = true;
-			size_t len = s.size();
+			size_t len = s.size ();
 			std::string firstline;
 			std::string key;
 			std::string value;
 
 
-			for(int i = 0; i < len; ++i) {
+			for (int i = 0; i < len; ++i) {
 				char c = s[i];
 
 				// if end is reached
-				if((i + 1) == s.size()) {
+				if ((i + 1) == s.size ()) {
 					break;
 				}
 
 				// if end of headerline
-				if(c == '\r' && s[i + 1] == '\n') {
-					if(isFirstLine) {
+				if (c == '\r' && s[i + 1] == '\n') {
+					if (isFirstLine) {
 						isFirstLine = false;
 					} else {
-						if(key != "") {
-							fields.insert({key, value});
+						if (key != "") {
+							fields.insert ({key, value});
 						} else {
 							break;
 						}
-						key.clear();
-						value.clear();
+						key.clear ();
+						value.clear ();
 						isKey = true;
 						isFirstColon = true;
 					}
 					i += 1;
 					continue;
 				}
-				if(c == ':') {
+				if (c == ':') {
 					isKey = false;
-					if(isFirstColon) {
+					if (isFirstColon) {
 						isFirstColon = false;
 						++i;
 						continue;
 					}
 				}
-				if(isFirstLine) {
+				if (isFirstLine) {
 					firstline += c;
 				} else {
-					if(isKey) {
+					if (isKey) {
 						key += c;
 					} else {
 						value += c;
@@ -66,52 +66,68 @@ namespace dnc {
 			}
 
 			unsigned char value_type = 0;
-			
-			for(char c : firstline) {
-				if(c == ' ') {
+
+			for (char c : firstline) {
+				if (c == ' ') {
 					++value_type;
 					continue;
 				}
-				switch(value_type) {
-					case 0:
-						method += c;
-						break;
-					case 1:
-						path += c;
-						break;
-					case 2:
-						http_version += c;
-						break;
+				switch (value_type) {
+				case 0:
+					method += c;
+					break;
+				case 1:
+					path += c;
+					break;
+				case 2:
+					http_version += c;
+					break;
 				}
 			}
 		}
 
-		bool HttpHeader::IsSet(String & key) {
-			return fields.find(key.GetStringValue()) != fields.end();
+		bool HttpHeader::IsSet (String & key) {
+			return fields.find (key.GetStringValue ()) != fields.end ();
 		}
 
-		String & HttpHeader::Method() {
+		String & HttpHeader::Method () {
 			return method;
 		}
 
-		String & HttpHeader::Path() {
+		void HttpHeader::Method (String method) {
+			this->method = method;
+		}
+
+		String & HttpHeader::Path () {
 			return path;
 		}
 
-		String & HttpHeader::HttpVersion() {
+		void HttpHeader::Path (String path) {
+			this->path = path;
+		}
+
+		String & HttpHeader::HttpVersion () {
 			return http_version;
 		}
 
-		Net::Sockets::Socket& HttpHeader::Socket() {
+		void HttpHeader::HttpVersion (String version) {
+			this->http_version = version;
+		}
+
+		Net::Sockets::Socket& HttpHeader::Socket () {
 			return sock;
 		}
 
-		void HttpHeader::Socket(Net::Sockets::Socket socket) {
-			sock = std::move(socket);
+		void HttpHeader::Socket (Net::Sockets::Socket socket) {
+			sock = std::move (socket);
 		}
 
-		String HttpHeader::Field(String & fieldname) {
-			return String(fields.at(fieldname.GetStringValue()));
+		String HttpHeader::Field (String & fieldname) {
+			return String (fields.at (fieldname.GetStringValue ()));
+		}
+
+		void HttpHeader::Field (String fieldname, String fieldvalue) {
+			fields.insert ({fieldname.GetStringValue (), fieldvalue.GetStringValue ()});
 		}
 
 	}

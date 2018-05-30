@@ -11,18 +11,22 @@ namespace dnc {
 	namespace Web {
 		class HttpHeader {
 		public:
-			HttpHeader();
-			~HttpHeader();
+			HttpHeader ();
+			~HttpHeader ();
 
-			void Parse(String& str);
-			bool IsSet(String& key);
-			String Field(String& fieldname);
-			String& Method();
-			String& Path();
-			String& HttpVersion();
+			void Parse (String& str);
+			bool IsSet (String& key);
+			String Field (String& fieldname);
+			void Field (String fieldname, String fieldvalue);
+			String& Method ();
+			void Method (String method);
+			String& Path ();
+			void Path (String path);
+			String& HttpVersion ();
+			void HttpVersion (String version);
 
-			Net::Sockets::Socket& Socket();
-			void Socket(Net::Sockets::Socket socket);
+			Net::Sockets::Socket& Socket ();
+			void Socket (Net::Sockets::Socket socket);
 
 		private:
 			String method;
