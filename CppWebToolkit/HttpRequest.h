@@ -8,6 +8,7 @@
 #include <optional>
 
 #include "DNC\Socket.h"
+#include "PageHolderBase.h"
 
 namespace dnc {
 	namespace Web {
@@ -31,6 +32,9 @@ namespace dnc {
 			std::optional<std::string> GET (const std::string& fieldname);
 			std::optional<std::string> POST (const std::string& fieldname);
 
+			PageHolderBase* Page ();
+			void Page (PageHolderBase* _page);
+
 			Net::Sockets::Socket& Socket ();
 			void Socket (Net::Sockets::Socket socket);
 
@@ -45,6 +49,8 @@ namespace dnc {
 			std::unordered_map<std::string, std::string> header_fields;
 			std::unordered_map<std::string, std::string> get_fields;
 			std::unordered_map<std::string, std::string> post_fields;
+
+			PageHolderBase* page = nullptr;
 
 			Net::Sockets::Socket sock;
 

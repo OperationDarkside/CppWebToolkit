@@ -4,11 +4,13 @@
 
 #include "DNC\String.h"
 #include "DNC\Socket.h"
-#include "HttpRequest.h"
+// #include "HttpRequest.h"
 #include "HttpResponse.h"
 
 namespace dnc {
 	namespace Web {
+		class HttpRequest;
+
 		class PageHolderBase : public Object {
 		public:
 			PageHolderBase();
@@ -17,7 +19,7 @@ namespace dnc {
 			std::string ToString() override;
 			std::string GetTypeString() override;
 
-			virtual void GetResponse(HttpRequest&& request) = 0;
+			virtual HttpResponse GetResponse(HttpRequest&& request) = 0;
 		};
 	}
 }

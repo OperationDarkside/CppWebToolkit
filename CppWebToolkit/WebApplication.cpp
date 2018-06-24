@@ -31,27 +31,13 @@ namespace dnc {
 			std::vector<Net::Sockets::Socket*> readSockets;
 			std::vector<Net::Sockets::Socket*> writeSockets;
 			std::vector<Net::Sockets::Socket*> errorSockets;
-			//std::vector<Net::Sockets::Socket*> removeSockets;
-			/*
-			addr.push_back(127);
-			addr.push_back(0);
-			addr.push_back(0);
-			addr.push_back(1);
-			*/
+
+			SetupPages ();
+
 			listenSock.Bind (Net::IPEndPoint (Net::IPAddress ({127,0,0,1}), 999));
 			listenSock.Listen (10);
 
 			while (is_running) {
-				/*for (Net::Sockets::Socket& s : clientSockets) {
-					if (!s.Connected()) {
-						removeSockets.push_back(&s);
-					}
-				}
-
-				for (Net::Sockets::Socket* s : removeSockets) {
-					clientSockets.erase(std::remove(clientSockets.begin(), clientSockets.end(), *s), clientSockets.end());
-				}
-				removeSockets.clear();*/
 
 				readSockets.push_back (&listenSock);
 				for (Net::Sockets::Socket& s : clientSockets) {
@@ -75,14 +61,7 @@ namespace dnc {
 						// New incoming client
 						Net::Sockets::Socket accSock = listenSock.Accept ();
 						clientSockets.push_back (accSock);
-						/*
-						if(readSockets.size() > 1) {
-							// remove listening socket
-							readSockets.erase(std::remove(readSockets.begin(), readSockets.end(), &listenSock), readSockets.end());
-							// Something to read
-							HandleReads(clientSockets, readSockets);
-						}
-						*/
+
 					} else {
 						// Something to read
 						try {
@@ -96,76 +75,44 @@ namespace dnc {
 				}
 				readSockets.clear ();
 			}
-			/*
-			while(true) {
-				String request;
+		}
 
-				Net::Sockets::Socket accSock = listenSock.Accept();
-				accSock.Blocking(false);
+		void WebApplication::SetupPages () {
+			size_t supported_thread_num = std::thread::hardware_concurrency ();
 
-				std::this_thread::sleep_for(std::chrono::milliseconds(2));
+			for (int i = 0; i < supported_thread_num; ++i) {
+				threads.push_back (std::move (std::thread ([&] () {
+					while (true) {
+						auto request = queue.Pop ();
 
-				std::chrono::time_point<std::chrono::high_resolution_clock> t_construct = std::chrono::high_resolution_clock::now();
-				try {
-					int receive_num = 0;
-					while(true) {
-						std::array<char, 100> recvBuffer;
+						try {
+							//HttpResponse response = wp->HandleRequest (request);
+							PageHolderBase* page = request.Page ();
+							if (page == nullptr) {
+								continue;
+							}
 
-						int bytesrecvd = accSock.Receive(recvBuffer);
+							HttpResponse response = page->GetResponse (std::move(request));
 
-						if(bytesrecvd < 1 && receive_num == 0) {
-							break;
+							auto& fields = response.HeaderFields ();
+							fields["Connection"] = " close";
+							fields["Content-Type"] = " text/html";
+
+							// response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
+
+							Net::Sockets::Socket& socket = request.Socket ();
+
+							std::string resp_str = response.toSendString ();
+
+							socket.Send (resp_str.c_str ());
+							socket.Disconnect ();
+						} catch (std::exception& ex) {
+							const char* what = ex.what ();
 						}
-
-						String recvBufferStr = recvBuffer;
-
-						request += recvBufferStr;
-
-						if(bytesrecvd != 100) {
-							break;
-						}
-
-						++receive_num;
+						// socket->Disconnect();
 					}
-					if(request[0] == 0) {
-						Console::WriteLine("Unnecessary connection");
-						//accSock.Disconnect();
-						continue;
-					}
-
-					Console::WriteLine(request);
-					Console::WriteLine();
-
-					String firstLine = request.Substring(0, request.IndexOf('\n'));
-					dnc::Collections::Generic::List<String> firstLineValues = firstLine.Split(' ');
-					String path = firstLineValues[1];
-
-					auto& page = pages.find(path.GetStringValue());
-					if(page == pages.end()) {
-						accSock.Send("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
-						accSock.Disconnect();
-						Console::WriteLine("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
-						continue;
-					}
-
-					PageHolderBase* holder = page->second.get();
-
-					String response = holder->getResponse(request);
-					response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
-
-					Console::WriteLine(response);
-
-					accSock.Send(response.GetStringValue().c_str());
-					accSock.Disconnect();
-					// accSock.Close();
-				} catch(std::exception& ex) {
-					ex.what();
-				}
-				std::chrono::time_point<std::chrono::high_resolution_clock> t_render = std::chrono::high_resolution_clock::now();
-				std::chrono::microseconds diff = std::chrono::duration_cast<std::chrono::microseconds>(t_render - t_construct);
-				Console::WriteLine((int) diff.count());
+				})));
 			}
-			*/
 		}
 
 		void WebApplication::HandleReads (std::list<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*>& readSockets) {
@@ -217,13 +164,15 @@ namespace dnc {
 					s->Disconnect ();
 					eraseSockets.push_back (s);
 					// ERASE AFTER DISCONNECT
-					Console::WriteLine ("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n");
+					Console::WriteLine (dnc::String("HTTP/1.1 404 Not Found\r\nConnection: close\r\n\r\n" + request.Resource ()));
 					continue;
 				}
 
 				PageHolderBase* holder = page->second.get ();
+				request.Page (holder);
 
-				holder->GetResponse (std::move (request));
+				queue.Push (std::move (request));
+				//holder->GetResponse (std::move (request));
 				//response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
 
 				//Console::WriteLine(response);

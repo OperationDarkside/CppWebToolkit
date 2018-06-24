@@ -4,8 +4,6 @@
 
 #include "PageHolderBase.h"
 #include "WebPage.h"
-#include "ThreadPool.h"
-#include "BlockingQueue.h"
 #include <exception>
 
 namespace dnc {
@@ -19,15 +17,17 @@ namespace dnc {
 			std::string ToString () override;
 			std::string GetTypeString () override;
 
-			void GetResponse (HttpRequest&& request) override;
+			HttpResponse GetResponse (HttpRequest&& request) override;
 		private:
-			std::vector<T> buffered_webpages;
-			ThreadPool threadpool;
-			BlockingQueue<HttpRequest> queue;
+			T page;
+			//std::vector<T> buffered_webpages;
+			//ThreadPool threadpool;
+			//BlockingQueue<HttpRequest> queue;
 		};
 
 		template<typename T>
 		inline PageHolder<T>::PageHolder () {
+			/*
 			size_t supported_thread_num = threadpool.SupportedThreads ();
 
 			buffered_webpages.reserve (supported_thread_num);
@@ -66,6 +66,7 @@ namespace dnc {
 					}
 				});
 			}
+			*/
 		}
 
 		template<typename T>
@@ -82,8 +83,34 @@ namespace dnc {
 		}
 
 		template<typename T>
-		inline void PageHolder<T>::GetResponse (HttpRequest&& request) {
-			queue.Push (std::move (request));
+		inline HttpResponse PageHolder<T>::GetResponse (HttpRequest&& request) {
+			WebPage* wp = static_cast<WebPage*>(&page);
+
+			try {
+				HttpResponse response = wp->HandleRequest (request);
+
+				/*auto& fields = response.HeaderFields ();
+				fields["Connection"] = " close";
+				fields["Content-Type"] = " text/html";
+
+				// response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
+
+				Net::Sockets::Socket& socket = request.Socket ();
+
+				std::string resp_str = response.toSendString ();
+
+				socket.Send (resp_str.c_str ());
+				socket.Disconnect ();
+				*/
+				return response;
+			} catch (std::exception& ex) {
+				const char* what = ex.what ();
+				// TODO restart page
+				HttpResponse response;
+				response.ResponseCode (RESPONSE_CODE::ERROR_500);
+				return response;
+			}
+			//queue.Push (std::move (request));
 			/*T instance;
 
 			WebPage* wp = static_cast<WebPage*>(&instance);

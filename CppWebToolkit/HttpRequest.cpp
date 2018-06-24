@@ -46,6 +46,14 @@ namespace dnc {
 			return element->second;
 		}
 
+		PageHolderBase * HttpRequest::Page () {
+			return page;
+		}
+
+		void HttpRequest::Page (PageHolderBase * _page) {
+			page = _page;
+		}
+
 		Net::Sockets::Socket & HttpRequest::Socket () {
 			return sock;
 		}

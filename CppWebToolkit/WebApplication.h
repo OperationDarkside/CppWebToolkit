@@ -2,6 +2,8 @@
 #ifndef WEBAPPLICATION_H
 #define WEBAPPLICATION_H
 
+#include "ThreadPool.h"
+#include "BlockingQueue.h"
 #include "PageHolder.h"
 #include "WebPage.h"
 #include "DNC\String.h"
@@ -35,7 +37,10 @@ namespace dnc {
 
 		private:
 			std::unordered_map<std::string, std::unique_ptr<PageHolderBase>> pages;
+			std::vector<std::thread> threads;
+			BlockingQueue<HttpRequest> queue;
 
+			void SetupPages ();
 			void HandleReads(std::list<Net::Sockets::Socket>& clientSockets, std::vector<Net::Sockets::Socket*>& readSockets);
 		};
 	}
