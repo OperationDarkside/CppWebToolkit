@@ -8,20 +8,32 @@ namespace dnc {
 
 		MyFirstPage::~MyFirstPage() {}
 
-		HttpResponse MyFirstPage::HandleRequest(HttpRequest & request) {
-			HttpResponse resp;
+		HttpResponse<SimpleSession> MyFirstPage::HandleRequest(HttpRequest<SimpleSession> & request) {
+			HttpResponse<SimpleSession> resp;
 
-			resp.ResponseCode (RESPONSE_CODE::OK_200);
-			resp.Body (R"(<!DOCTYPE html>
+			std::string body = R"(<!DOCTYPE html>
 						  <html>
 						  <body>
 
 						  <h1>My First Heading</h1>
 
-						  <p>My first paragraph.</p>
+						  <p>My first paragraph.</p>)";
 
-						  </body>
-						  </html>)");
+			if (request.HasSession () && request.CurrentSession ()->IsSet("name")) {
+				std::string name = request.CurrentSession ()->GetValue ("name");
+
+				body += "<p><strong>Name</strong>: " + name + "</p>";
+			}
+
+			body += "</body></html>";
+
+			resp.ResponseCode (RESPONSE_CODE::OK_200);
+			resp.Body (body);
+
+			if (!request.HasSession ()) {
+				SimpleSession& session = resp.CreateSession ();
+				session.Insert ("name", "Chuck Norris");
+			}
 
 			return resp;
 		}

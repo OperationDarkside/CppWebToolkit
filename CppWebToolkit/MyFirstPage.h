@@ -3,15 +3,16 @@
 #define MYFIRSTPAGE_H
 
 #include "WebPage.h"
+#include "SimpleSession.h"
 
 namespace dnc {
 	namespace Web {
-		class MyFirstPage : public WebPage {
+		class MyFirstPage : public WebPage<SimpleSession> {
 		public:
 			MyFirstPage();
 			~MyFirstPage();
 
-			HttpResponse HandleRequest(HttpRequest& request) override;
+			HttpResponse<SimpleSession> HandleRequest(HttpRequest<SimpleSession>& request) override;
 		};
 	}
 }

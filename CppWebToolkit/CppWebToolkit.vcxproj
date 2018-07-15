@@ -158,6 +158,8 @@
     <ClCompile Include="CgiPOST.cpp" />
     <ClCompile Include="Request.cpp" />
     <ClCompile Include="Response.cpp" />
+    <ClCompile Include="SimpleSession.cpp" />
+    <ClCompile Include="SimpleSessionProvider.cpp" />
     <ClCompile Include="StringBuilder.cpp" />
     <ClCompile Include="SubmitButton.cpp" />
     <ClCompile Include="Table.cpp" />
@@ -213,6 +215,10 @@
     <ClInclude Include="CgiPOST.h" />
     <ClInclude Include="Request.h" />
     <ClInclude Include="Response.h" />
+    <ClInclude Include="SessionBase.h" />
+    <ClInclude Include="SimpleSession.h" />
+    <ClInclude Include="SimpleSessionProvider.h" />
+    <ClInclude Include="SessionProviderBase.h" />
     <ClInclude Include="StringBuilder.h" />
     <ClInclude Include="SubmitButton.h" />
     <ClInclude Include="Table.h" />

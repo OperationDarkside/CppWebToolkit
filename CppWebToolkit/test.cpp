@@ -23,6 +23,7 @@
 #include "GridLayout.h"
 #include "WebApplication.h"
 #include "MyFirstPage.h"
+#include "SimpleSessionProvider.h"
 
 //using namespace dnc;
 //using namespace dnc::Web;
@@ -30,7 +31,7 @@
 
 int main() {
 
-	dnc::Web::WebApplication app;
+	dnc::Web::WebApplication<dnc::Web::SimpleSession, dnc::Web::SimpleSessionProvider> app;
 	app.registerPage<dnc::Web::MyFirstPage>(dnc::String("/"));
 	app.Start();
 

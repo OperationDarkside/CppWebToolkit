@@ -8,25 +8,41 @@
 
 namespace dnc {
 	namespace Web {
-		template<typename T>
-		class PageHolder : public PageHolderBase {
+		template<typename Page, typename Session, typename = std::enable_if_t<std::is_base_of<WebPage<Session>, Page>::value, Page>>
+		class PageHolder : public PageHolderBase<Session> {
 		public:
-			PageHolder ();
-			~PageHolder ();
+			PageHolder () {};
+			~PageHolder () {};
 
-			std::string ToString () override;
-			std::string GetTypeString () override;
+			std::string ToString () override {
+				return std::string ("System.Web.PageHolder");
+			};
+			std::string GetTypeString () override {
+				return std::string ("PageHolder");
+			};
 
-			HttpResponse GetResponse (HttpRequest&& request) override;
+			HttpResponse<Session> GetResponse (HttpRequest<Session>&& request) override {
+				try {
+					HttpResponse<Session> response = page.HandleRequest (request);
+
+					return response;
+				} catch (std::exception& ex) {
+					const char* what = ex.what ();
+					// TODO restart page
+					HttpResponse<Session> response;
+					response.ResponseCode (RESPONSE_CODE::ERROR_500);
+					return response;
+				}
+			};
 		private:
-			T page;
+			Page page;
 			//std::vector<T> buffered_webpages;
 			//ThreadPool threadpool;
 			//BlockingQueue<HttpRequest> queue;
 		};
 
-		template<typename T>
-		inline PageHolder<T>::PageHolder () {
+		//template<typename Page, typename Session>
+		//inline PageHolder<Page, Session>::PageHolder () {
 			/*
 			size_t supported_thread_num = threadpool.SupportedThreads ();
 
@@ -67,63 +83,63 @@ namespace dnc {
 				});
 			}
 			*/
-		}
+		//}
 
-		template<typename T>
-		inline PageHolder<T>::~PageHolder () {}
+		//template<typename Page, typename Session>
+		//inline PageHolder<Page, Session>::~PageHolder () {}
 
-		template<typename T>
-		inline std::string PageHolder<T>::ToString () {
-			return std::string ("System.Web.PageHolder");
-		}
+		//template<typename Page, typename Session>
+		//inline std::string PageHolder<Page, Session>::ToString () {
+		//	return std::string ("System.Web.PageHolder");
+		//}
 
-		template<typename T>
-		inline std::string PageHolder<T>::GetTypeString () {
-			return std::string ("PageHolder");
-		}
+		//template<typename Page, typename Session>
+		//inline std::string PageHolder<Page, Session>::GetTypeString () {
+		//	return std::string ("PageHolder");
+		//}
 
-		template<typename T>
-		inline HttpResponse PageHolder<T>::GetResponse (HttpRequest&& request) {
-			WebPage* wp = static_cast<WebPage*>(&page);
+		//template<typename Page, typename Session>
+		//inline HttpResponse PageHolder<Page, Session>::GetResponse (HttpRequest<Session>&& request) {
+		//	//WebPage* wp = static_cast<WebPage*>(&page);
 
-			try {
-				HttpResponse response = wp->HandleRequest (request);
+		//	try {
+		//		HttpResponse response = page.HandleRequest (request);
 
-				/*auto& fields = response.HeaderFields ();
-				fields["Connection"] = " close";
-				fields["Content-Type"] = " text/html";
+		//		/*auto& fields = response.HeaderFields ();
+		//		fields["Connection"] = " close";
+		//		fields["Content-Type"] = " text/html";
 
-				// response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
+		//		// response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
 
-				Net::Sockets::Socket& socket = request.Socket ();
+		//		Net::Sockets::Socket& socket = request.Socket ();
 
-				std::string resp_str = response.toSendString ();
+		//		std::string resp_str = response.toSendString ();
 
-				socket.Send (resp_str.c_str ());
-				socket.Disconnect ();
-				*/
-				return response;
-			} catch (std::exception& ex) {
-				const char* what = ex.what ();
-				// TODO restart page
-				HttpResponse response;
-				response.ResponseCode (RESPONSE_CODE::ERROR_500);
-				return response;
-			}
-			//queue.Push (std::move (request));
-			/*T instance;
+		//		socket.Send (resp_str.c_str ());
+		//		socket.Disconnect ();
+		//		*/
+		//		return response;
+		//	} catch (std::exception& ex) {
+		//		const char* what = ex.what ();
+		//		// TODO restart page
+		//		HttpResponse response;
+		//		response.ResponseCode (RESPONSE_CODE::ERROR_500);
+		//		return response;
+		//	}
+		//	//queue.Push (std::move (request));
+		//	/*T instance;
 
-			WebPage* wp = static_cast<WebPage*>(&instance);
+		//	WebPage* wp = static_cast<WebPage*>(&instance);
 
-			String response = wp->HandleRequest(request);
+		//	String response = wp->HandleRequest(request);
 
-			response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
+		//	response = "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n" + response;
 
-			Console::WriteLine(response);
+		//	Console::WriteLine(response);
 
-			s->Send(response.GetStringValue().c_str());
-			s->Disconnect();*/
-		}
+		//	s->Send(response.GetStringValue().c_str());
+		//	s->Disconnect();*/
+		//}
 	}
 }
 

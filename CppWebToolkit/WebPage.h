@@ -5,18 +5,26 @@
 #include "DNC\String.h"
 #include "HttpRequest.h"
 #include "HttpResponse.h"
+#include "SessionBase.h"
+
+#include <optional>
 
 namespace dnc {
 	namespace Web {
+		template<typename Session, typename = std::enable_if_t<std::is_base_of<SessionBase, Session>::value, Session>>
 		class WebPage : public Object {
 		public:
-			WebPage();
-			~WebPage();
+			//WebPage();
+			//~WebPage();
 
-			std::string ToString() override;
-			std::string GetTypeString() override;
+			std::string ToString () override {
+				return std::string ("System.Web.WebPage");
+			};
+			std::string GetTypeString () override {
+				return std::string ("WebPage");
+			};
 
-			virtual HttpResponse HandleRequest(HttpRequest& request) = 0;
+			virtual HttpResponse<Session> HandleRequest(HttpRequest<Session>& request) = 0;
 		};
 	}
 }

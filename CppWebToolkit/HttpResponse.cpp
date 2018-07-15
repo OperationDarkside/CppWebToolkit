@@ -2,7 +2,7 @@
 
 namespace dnc {
 	namespace Web {
-
+		/*
 		HttpResponse::HttpResponse () {}
 
 
@@ -52,6 +52,6 @@ namespace dnc {
 
 			return res;
 		}
-
+		*/
 	}
 }

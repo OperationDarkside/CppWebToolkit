@@ -177,9 +177,6 @@
     <ClCompile Include="BlockingQueue.cpp">
       <Filter>Quelldateien\WebServer</Filter>
     </ClCompile>
-    <ClCompile Include="HttpRequest.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="CgiGET.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -192,8 +189,17 @@
     <ClCompile Include="HttpPost.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleSessionProvider.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleSession.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpRequest.cpp">
+      <Filter>Quelldateien\WebServer</Filter>
+    </ClCompile>
     <ClCompile Include="HttpResponse.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\WebServer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -335,9 +341,6 @@
     <ClInclude Include="CharSets.h">
       <Filter>Headerdateien\Element</Filter>
     </ClInclude>
-    <ClInclude Include="HttpRequest.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="CgiGET.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -350,8 +353,23 @@
     <ClInclude Include="HttpPost.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="SessionBase.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleSession.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleSessionProvider.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionProviderBase.h">
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
     <ClInclude Include="HttpResponse.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpRequest.h">
+      <Filter>Headerdateien\WebServer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

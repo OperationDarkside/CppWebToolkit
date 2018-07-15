@@ -3,6 +3,7 @@
 namespace dnc {
 	namespace Web {
 
+		/*
 		WebPage::WebPage() {}
 
 
@@ -15,6 +16,6 @@ namespace dnc {
 		std::string WebPage::GetTypeString() {
 			return std::string("WebPage");
 		}
-
+		*/
 	}
 }

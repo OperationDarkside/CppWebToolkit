@@ -2,7 +2,7 @@
 
 namespace dnc {
 	namespace Web {
-
+		/*
 		PageHolderBase::PageHolderBase() {}
 
 
@@ -15,6 +15,6 @@ namespace dnc {
 		std::string PageHolderBase::GetTypeString() {
 			return std::string("PageHolderBase");
 		}
-
+		*/
 	}
 }

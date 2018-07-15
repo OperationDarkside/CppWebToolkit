@@ -4,22 +4,32 @@
 
 #include "DNC\String.h"
 #include "DNC\Socket.h"
-// #include "HttpRequest.h"
+#include "HttpRequest.h"
 #include "HttpResponse.h"
+#include "SessionProviderBase.h"
+
+#include <optional>
 
 namespace dnc {
 	namespace Web {
-		class HttpRequest;
-
+		
+		template<typename Session, typename = std::enable_if_t<std::is_base_of<SessionBase, Session>::value, Session>>
 		class PageHolderBase : public Object {
 		public:
-			PageHolderBase();
-			~PageHolderBase();
+			//template<typename Session, typename = std::enable_if_t<std::is_base_of<SessionBase, Session>::value, Session>>
+			//class HttpRequest;
 
-			std::string ToString() override;
-			std::string GetTypeString() override;
+			PageHolderBase () {};
+			~PageHolderBase() {};
 
-			virtual HttpResponse GetResponse(HttpRequest&& request) = 0;
+			std::string ToString() override {
+				return std::string ("System.Web.PageHolderBase");
+			};
+			std::string GetTypeString() override {
+				return std::string ("PageHolderBase");
+			};
+
+			virtual HttpResponse<Session> GetResponse(HttpRequest<Session>&& request) = 0;
 		};
 	}
 }

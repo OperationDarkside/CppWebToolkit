@@ -8,7 +8,7 @@
 
 namespace dnc {
 	namespace Web {
-
+		/*
 		WebApplication::WebApplication () {}
 
 
@@ -188,6 +188,6 @@ namespace dnc {
 			}
 		}
 
-
+		*/
 	}
 }

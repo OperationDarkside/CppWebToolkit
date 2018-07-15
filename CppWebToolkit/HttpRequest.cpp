@@ -4,7 +4,7 @@
 
 namespace dnc {
 	namespace Web {
-
+		/*
 		HttpRequest::HttpRequest () {}
 
 
@@ -262,6 +262,6 @@ namespace dnc {
 
 			return true;
 		}
-
+		*/
 	}
 }
